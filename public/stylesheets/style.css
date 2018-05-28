@@ -2,19 +2,54 @@ html, body, * {
   margin: 0;
   padding: 0; }
 
+/* work-sans-200 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: local("Work Sans ExtraLight"), local("WorkSans-ExtraLight"), url("../fonts/work-sans-v3-latin-200.woff2") format("woff2"), url("../fonts/work-sans-v3-latin-200.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
+/* work-sans-regular - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Work Sans"), local("WorkSans-Regular"), url("../fonts/work-sans-v3-latin-regular.woff2") format("woff2"), url("../fonts/work-sans-v3-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
+/* work-sans-600 - latin */
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Work Sans SemiBold"), local("WorkSans-SemiBold"), url("../fonts/work-sans-v3-latin-600.woff2") format("woff2"), url("../fonts/work-sans-v3-latin-600.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-v12-latin-regular.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-regular.woff") format("woff");
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
+
 #main {
   font-family: "Montserrat", sans-serif;
-  background: #C93936;
   font-weight: lighter;
-  width: 70%;
-  padding: 0 3%; }
+  width: 70%; }
   #main h1 {
     font-family: "Montserrat";
-    color: white; }
+    color: white;
+    background: #C93936;
+    padding: 0 3%; }
+  #main p {
+    padding: 0 3%;
+    font-family: "Work Sans"; }
 
 .dropdown {
-  padding: 1.5% 0;
   margin-bottom: 1% !important; }
+  .dropdown .submenu {
+    padding: 1.5% 1%; }
   .dropdown li {
     list-style-type: none;
     font-family: "Work Sans", sans-serif;

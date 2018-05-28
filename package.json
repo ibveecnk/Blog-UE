@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "start": "npm run sass && npm run copy-assets && npm run server",
-    "sass": "node-sass sass/style.scss stylesheets/style.css",
-    "sass:watch": "node-sass sass/style.scss stylesheets/style.css && node-sass sass/style.scss stylesheets/style.css --watch",
+    "sass": "node-sass sass/style.scss public/stylesheets/style.css",
+    "sass:watch": "node-sass sass/style.scss public/stylesheets/style.css && node-sass sass/style.scss public/stylesheets/style.css --watch",
     "server": "node ./bin/www",
     "copy-assets": "node ./tasks/copy-assets.js"
   },
