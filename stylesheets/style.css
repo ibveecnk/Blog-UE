@@ -1,0 +1,41 @@
+html, body, * {
+  margin: 0;
+  padding: 0; }
+
+#main {
+  font-family: "Montserrat", sans-serif;
+  background: #C93936;
+  font-weight: lighter;
+  width: 70%;
+  padding: 0 3%; }
+  #main h1 {
+    font-family: "Montserrat";
+    color: white; }
+
+.dropdown {
+  padding: 1.5% 1%;
+  margin-bottom: 1% !important; }
+  .dropdown li {
+    list-style-type: none;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.5rem;
+    margin: 0 2%;
+    transition: color .3s ease-in-out; }
+    .dropdown li:after {
+      content: '';
+      height: 1px;
+      width: 0;
+      display: block;
+      background: black;
+      position: relative;
+      left: 50%;
+      transition: width .3s ease-in-out, left .3s ease-in-out, background .3s ease-in-out; }
+    .dropdown li:hover {
+      cursor: pointer;
+      color: #3996B8;
+      transition: color .1s ease-in-out; }
+      .dropdown li:hover:after {
+        width: 96%;
+        left: 0;
+        background: #3996B8;
+        transition: width .1s ease-in-out, left .1s ease-in-out, background .1s ease-in-out; }
