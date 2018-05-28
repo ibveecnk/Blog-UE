@@ -17,7 +17,7 @@ var app = express();
 app.locals.globalCat = ['abc','def','ghi','jkl'];
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
-
+var categoriesRouter = require('./routes/categories');
 
 
 app.engine('hbs', exphbs({
@@ -74,7 +74,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
-app.use(bodyParser.json());
+app.use('/categories', categoriesRouter);
 app.use('/testsubmit', addauthorRouter);
 
 app.use(function (req, res, next) {
