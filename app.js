@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var kontaktRouter = require('./routes/kontakt');
 var app = express();
 
+//Das ist ein Test
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
