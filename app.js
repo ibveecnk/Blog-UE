@@ -5,7 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var express = require('express');
 var exphbs  = require('express-handlebars');
-
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema,
+  ObjectId = Schema.ObjectId;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -20,6 +22,25 @@ app.engine('hbs', exphbs({
   extname: 'hbs',
   layoutsDir: './views/layouts/'
 }));
+
+var authorSchema = new Schema(
+  {
+    _id: Schema.Types.ObjectId,
+    Surname: String,
+    Name: String,
+    Since: Date,
+  })
+
+var postSchema = new Schema(
+  {
+    public: Boolean,
+    title: String,
+    content: String,
+    author: ObjectId,
+    date: { type: Date, default: Date.now },
+    category: String,
+  })
+  var Author = mongoose.model('Author', authorSchema);
 
 app.set('view engine', 'hbs');
 
