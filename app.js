@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 var logger = require('morgan');
 var express = require('express');
 var exphbs = require('express-handlebars');
@@ -48,7 +49,6 @@ var postSchema = new Schema({
   },
   category: ObjectId,
 })
-
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
@@ -63,12 +63,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
-
+app.use(bodyParser.json());
+app.use('/testsubmit', addauthorRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
 });
-
 
 app.use(function (err, req, res, next) {
   res.locals.message = err.message;

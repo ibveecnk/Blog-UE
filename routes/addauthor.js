@@ -1,14 +1,16 @@
 var express = require('express');
 var app = express();
 var router = express.Router();
+app.use(express.json());
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('addauthor');
 });
 
-router.post('/testsubmit', function (req, res) {
-  console.log('Request erhalten')
+router.post('/', function (req, res) {
+  console.log('Request erhalten');
+  console.log(req.get.testtext);
 });
 
 module.exports = router;
