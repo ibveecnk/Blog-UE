@@ -17,7 +17,7 @@
                 <!-- Kategorien !-->
                 {{#each globalCat}}
                     <li>
-                        <a href="/categories/{{this}}">{{this}}</a>
+                        <a href="/categories/{{this.catlink}}">{{this.catname}}</a>
                     </li>
                 {{/each}}
             </ul>
@@ -26,9 +26,6 @@
             <a>KONTAKT</a>
         </li>
     </ul>
-    <pre>
-        {{{ globalCat }}}
-    </pre>
     {{{ body }}}
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/what-input.min.js"></script>

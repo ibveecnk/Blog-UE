@@ -14,7 +14,7 @@ var Schema = mongoose.Schema,
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
-app.locals.globalCat = ['abc','def','ghi','jkl'];
+app.locals.globalCat = [{catname:"abc",catlink:"def"},{catname:"a b b c",link:"abcd"},{catname:"ghi",catlink:"fhjgsd"}];
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 
@@ -43,12 +43,12 @@ var authorSchema = new Schema({
   }
 })
 
-var Author = mongoose.model('Author', authorSchema);
+//var Author = mongoose.model('Author', authorSchema);
 
-var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bob',Name: 'Smith' });
+/*var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bob',Name: 'Smith' });
 bob.save(function (err) {
   if (err) return handleError(err);
-});
+});*/
 var postSchema = new Schema({
   public: Boolean,
   title: String,
