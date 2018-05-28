@@ -43,12 +43,12 @@ var authorSchema = new Schema({
   }
 })
 
-//var Author = mongoose.model('Author', authorSchema);
+var Author = mongoose.model('Author', authorSchema);
 
-/*var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bob',Name: 'Smith' });
+var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bobbo',Name: 'Smithhi' });
 bob.save(function (err) {
   if (err) return handleError(err);
-});*/
+});
 var postSchema = new Schema({
   public: Boolean,
   title: String,
