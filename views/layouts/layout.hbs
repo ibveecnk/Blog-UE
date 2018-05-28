@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Work+Sans:200" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/foundation.min.css">
 </head>
-
 <body>
+    <ul class="dropdown menu" data-dropdown-menu>
+        <li href="/">
+            <a>HOME</a>
+        </li>
+        <li>
+            <a>BEITRÄGE</a>
+            <ul class="menu">
+                <li>
+                    <a href="#">Sport</a>
+                </li>
+                <li>
+                    <a href="#">Kultur</a>
+                </li>
+                <li>
+                    <a href="#">Essen</a>
+                </li>
+                <li>
+                    <a href="#">Travel</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a>KONTAKT</a>
+        </li>
+    </ul>
     {{{ body }}}
+    <script src="/scripts/jquery.min.js"></script>
+    <script src="/scripts/what-input.min.js"></script>
+    <script src="/scripts/foundation.min.js"></script>
+    <script src="/scripts/motion-ui.min.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
 </html>
