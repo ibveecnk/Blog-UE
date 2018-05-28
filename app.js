@@ -10,6 +10,7 @@ var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var kontaktRouter = require('./routes/kontakt');
 var app = express();
 
 
@@ -64,6 +65,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/kontakt', kontaktRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
