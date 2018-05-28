@@ -15,29 +15,20 @@
             <a>BEITRÄGE</a>
             <ul class="menu">
                 <!-- Kategorien !-->
-                {{#each categories}}
+                {{#each globalCat}}
                     <li>
                         <a href="/categories/{{this}}">{{this}}</a>
                     </li>
                 {{/each}}
-                <li>
-                    <a href="#">Sport</a>
-                </li>
-                <li>
-                    <a href="#">Kultur</a>
-                </li>
-                <li>
-                    <a href="#">Essen</a>
-                </li>
-                <li>
-                    <a href="#">Travel</a>
-                </li>
             </ul>
         </li>
         <li>
             <a>KONTAKT</a>
         </li>
     </ul>
+    <pre>
+        {{{ globalCat }}}
+    </pre>
     {{{ body }}}
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/what-input.min.js"></script>
