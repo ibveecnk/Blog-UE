@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../database')
+var mongoose = require('mongoose');
 var post = [];
+
 for(var i=0;i<10;i++) {
     post.push({
         title: "Titel " + i,
@@ -11,6 +14,8 @@ for(var i=0;i<10;i++) {
 }
 
 /*router.get('/food', function(req, res, next){
+var category = mongoose.model('Category', )
+router.get('/food', function(req, res, next){
     res.render('food')
 });
 router.get('/travel', function(req, res, next){
@@ -33,6 +38,6 @@ router.get('/categories/:category', function(req, res, next) {
     })
 })
 var findCategoryByLink = function(categorylink,callback) {
-    
+
 }
 module.exports = router;

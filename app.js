@@ -11,8 +11,6 @@ var app = express();
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 
-//Iven Home
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
@@ -30,27 +28,12 @@ app.engine('hbs', exphbs({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'hbs');
-var categorySchema = new Schema({
-  catname: String,
-  caturl: String,
-  _id: Schema.Types.ObjectId
-})
-var authorSchema = new Schema({
-  _id: Schema.Types.ObjectId,
-  Surname: String,
-  Name: String,
-  Since: {
-    type: Date,
-    default: Date.now
-  }
-})
 
-var Author = mongoose.model('Author', authorSchema);
 
-var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bobbo',Name: 'Smithhi' });
-bob.save(function (err) {
-  if (err) return handleError(err);
-});
+//var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bobbo',Name: 'Smithhi' });
+//bob.save(function (err) {
+ // if (err) return handleError(err);
+//});
 var postSchema = new Schema({
   public: Boolean,
   title: String,
