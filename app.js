@@ -18,6 +18,7 @@ var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 var categoriesRouter = require('./routes/categories');
 var author_dbRouter= require('./routes/author_db')
+var addpostRouter = require('./routes/addpost');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
