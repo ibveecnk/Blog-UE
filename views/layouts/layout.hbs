@@ -10,6 +10,7 @@
     <ul class="dropdown menu" data-dropdown-menu>
         <li href="/">
             <a>HOME</a>
+                <a href="/"></a>
         </li>
         <li>
             <a>BEITRÄGE</a>
@@ -17,18 +18,16 @@
                 <!-- Kategorien !-->
                 {{#each globalCat}}
                     <li>
-                        <a href="/categories/{{this}}">{{this}}</a>
+                        <a href="/categories/{{this.catlink}}">{{this.catname}}</a>
                     </li>
                 {{/each}}
             </ul>
         </li>
         <li>
             <a>KONTAKT</a>
+                <a href="/kontakt">
         </li>
     </ul>
-    <pre>
-        {{{ globalCat }}}
-    </pre>
     {{{ body }}}
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/what-input.min.js"></script>

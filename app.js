@@ -14,7 +14,7 @@ var Schema = mongoose.Schema,
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var app = express();
-app.locals.globalCat = ['abc','def','ghi','jkl'];
+app.locals.globalCat = [{catname:"abc",catlink:"def"},{catname:"a b b c",link:"abcd"},{catname:"ghi",catlink:"fhjgsd"}];
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 var categoriesRouter = require('./routes/categories');
@@ -30,6 +30,21 @@ app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'hbs');
 
 
+//var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bobbo',Name: 'Smithhi' });
+//bob.save(function (err) {
+ // if (err) return handleError(err);
+//});
+var postSchema = new Schema({
+  public: Boolean,
+  title: String,
+  content: String,
+  author: ObjectId,
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  category: ObjectId,
+})
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
