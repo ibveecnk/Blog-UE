@@ -9,8 +9,12 @@ console.log(db.Category.findOne);
 for(var i=1;i<=10;i++) {
     post.push({
         title: "Titel " + i,
-        date: new Date(i),
-        author: "Autor "+i,
+        date: new Date(i*1000000),
+        author: {
+            Surname:i,
+            Name:"Autor",
+            Since:new Date(i*1000000),
+        },
         content: "lorem ipsum"
     })
 }
@@ -38,13 +42,10 @@ router.all('/:category', function(req, res, next) {
     var category = req.params.category;
     findCategoryByLink(category, function(error,category){
         if(error) return next(error);
-        console.log(error);
-        res.render('categories',category);
+        res.render('categories',{category:category,post:post});
     })
 })
-var findCategoryByLink = function(categorylink,callback) {
-    console.log(categorylink);
-    //var cat = mongoose.model('Category', category);
+var findCategoryByLink = function(categorylink,callback) {;
     db.Category.findOne({ caturl: categorylink }, function (err, category) {
         callback(null, category);
     });
