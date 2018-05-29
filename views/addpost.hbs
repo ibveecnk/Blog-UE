@@ -10,6 +10,9 @@
         Autor
         <select>
             <option value="id" disabled selected>Autor auswählen</option>
+            {{#each authors}}
+                <option value="{{this._id}}">{{this.Surname}} {{this.Name}}</option>
+            {{/each}}
         </select>
     </label>
     <label>
