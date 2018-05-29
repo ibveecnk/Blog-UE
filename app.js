@@ -20,6 +20,8 @@ var addpostRouter = require('./routes/addpost')
 var categoriesRouter = require('./routes/categories');
 var author_dbRouter = require('./routes/author_db');
 var post_dbRouter = require('./routes/post_db')
+var addcategoryRouter = require('./routes/addcategory');
+var category_dbRouter = require('./routes/category_db');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -54,6 +56,8 @@ app.use('/author_db', author_dbRouter);
 app.use('/:category', categoriesRouter);
 app.use('/addpost', addpostRouter);
 app.use('/post_db', post_dbRouter);
+app.use('/addcategory', addcategoryRouter);
+app.use('/category_db',category_dbRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
