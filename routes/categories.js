@@ -48,7 +48,7 @@ router.all('/:category', function (req, res, next) {
         db.Post.find({category:category._id},function(err,post){
             //res.render('categories',{category:category,posts:post});
         }).populate("author").exec(function(err,post){
-            res.render('categories',{category:category,posts:post});
+            res.render('categories',{title:"Kategorie: "+category.catname,category:category,posts:post});
         })
     })
 })

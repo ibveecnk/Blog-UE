@@ -54,6 +54,31 @@ $secondary-color: #3996B9;
         padding:0 3%;
         font-family:"Work Sans";
     }
+    .post_list {
+        margin:0;
+        a {
+            list-style-type:none;
+            border-bottom:0.1em solid #C93936;
+            border-top:0.1em solid #C93936;
+            padding:2% 5%;
+            display:block;
+            color:black;
+            transition:box-shadow .3s ease-in-out, transform .3s ease-in-out;
+            .post_date {
+                color:#999;
+            }
+            .post_content_preview {
+                overflow:hidden;
+                white-space:nowrap;
+            }
+            &:hover {
+                box-shadow:0 0 100px 1px rgba(0,0,0,0.5);
+                transform:scale(1.05);
+                transition:box-shadow .3s ease-in-out, transform .3s ease-in-out;
+                cursor:pointer;
+            }
+        }
+    }
 }
 .dropdown {
     margin-bottom:1% !important;
