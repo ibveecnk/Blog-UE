@@ -16,9 +16,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
+var addpostRouter = require('./routes/addpost')
 var categoriesRouter = require('./routes/categories');
-var author_dbRouter= require('./routes/author_db')
-var addpostRouter = require('./routes/addpost');
+var author_dbRouter = require('./routes/author_db');
+var post_dbRouter = require('./routes/post_db')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -52,6 +53,7 @@ app.use('/addauthor', addauthorRouter);
 app.use('/author_db', author_dbRouter);
 app.use('/:category', categoriesRouter);
 app.use('/addpost', addpostRouter);
+app.use('/post_db', post_dbRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
