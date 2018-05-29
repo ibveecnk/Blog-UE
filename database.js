@@ -39,7 +39,6 @@ var categorySchema = new Schema({
   var Author = mongoose.model('Author', authorSchema);
   var Category = mongoose.model('Category', categorySchema);
   var Post = mongoose.model('Post', postSchema);
-
 connection.on('disconnected', function() {
     console.log('Erfolgreich von Datenbank abgemeldet');
 });

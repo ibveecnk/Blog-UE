@@ -1,0 +1,26 @@
+<h1>Post hinzufügen</h1>
+<form action="/submitpost" method="POST">
+    <label>
+        Öffentlich?
+        <input type="checkbox" id="public">
+    </label>
+    <input type="text" id="title" placeholder="Titel">
+    <textarea id="content" placeholder="Text"></textarea>
+    <label>
+        Autor
+        <select>
+            <option value="id" disabled selected>Autor auswählen</option>
+        </select>
+    </label>
+    <label>
+        Kategorie
+        <select>
+            <option value="id" disabled selected>Kategorie auswählen</option>
+            {{#each categories}}
+                <option value="{{this._id}}">{{this.catname}}</option>
+            {{/each}}
+        </select>
+    </label>
+    <input type="submit" value="Post hinzufügen">
+</form>
+{{{authors}}}

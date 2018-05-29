@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var array = mongoose.Types.Array;
 var post = [];
 
-console.log(db.Category.findOne);
 for (var i = 1; i <= 10; i++) {
     post.push({
         title: "Titel " + i,
