@@ -39,11 +39,11 @@ router.all('/:category', function (req, res, next) {
     findCategoryByLink(category, function (error, category) {
         if (error) return next(error);
         console.log(error);
-        findAuthorById(surname, name, since, function (error, surname, name, since) {
+        /*findAuthorById(surname, name, since, function (error, surname, name, since) {
                 if (error) return next(error);
                 console.log(error)
                 res.render('categories', category, surname, name, since);
-        })
+        })*/
     })
 })
 var findCategoryByLink = function (categorylink, callback) {
@@ -53,7 +53,7 @@ var findCategoryByLink = function (categorylink, callback) {
         }, function (err, category) {
             callback(null, category);
         });
-var findAuthorById = function (surname, name, since, callback) {
+/*var findAuthorById = function (surname, name, since, callback) {
         //var cat = mongoose.model('Category', category);
         db.Category.find({
             Surname: surname,
@@ -63,5 +63,6 @@ var findAuthorById = function (surname, name, since, callback) {
             callback(null, surname, name, since);
         });
         };
-    }
+    */
+   }
         module.exports = router;
