@@ -14,10 +14,8 @@ connection.on('connected', function() {
 var categorySchema = new Schema({
     catname: String,
     caturl: String,
-    _id: Schema.Types.ObjectId
   })
   var authorSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     Surname: String,
     Name: String,
     Since: {
