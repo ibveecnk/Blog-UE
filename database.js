@@ -57,4 +57,4 @@ process.on('SIGINT', function() {
         process.exit(0);
     });
 });
-module.exports = {connection:connection, Category:Category, Author:Author};
+module.exports = {connection:connection, Category:Category, Author:Author, Post:Post};
