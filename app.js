@@ -50,6 +50,7 @@ app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
 app.use('/author_db', author_dbRouter);
 app.use('/:category', categoriesRouter);
+app.use('/addpost', addpostRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
