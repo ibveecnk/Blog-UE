@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../database')
+var mongoose = require('mongoose');
 
+var category = mongoose.model('Category', )
 router.get('/food', function(req, res, next){
     res.render('food')
 });
