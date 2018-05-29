@@ -27,7 +27,7 @@ var categorySchema = new Schema({
     public: Boolean,
     title: String,
     content: String,
-    author: ObjectId,
+    author: { type: Schema.Types.ObjectId, ref: 'Author' },
     date: {
       type: Date,
       default: Date.now

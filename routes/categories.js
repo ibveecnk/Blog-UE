@@ -37,22 +37,30 @@ router.get('/fashion', function(req, res, next){
     res.render('categories',{post:post,title:"Kategorie"})
 });*/
 
-/*router.all('/:category', function (req, res, next) {
+router.all('/:category', function (req, res, next) {
     var category = req.params.category;
-    findCategoryByLink(category, function (error, category) {
+    /*findCategoryByLink(category, function (error, category) {
         if (error) return next(error);
+
         res.render('categories', category/*, surname, name, since);
+    })*/
+    db.Category.findOne({caturl:category},function(err,category){
+        db.Post.find({category:category._id},function(err,post){
+            //res.render('categories',{category:category,posts:post});
+        }).populate("author").exec(function(err,post){
+            res.render('categories',{category:category,posts:post});
+        })
     })
 })
-var findCategoryByLink = function (categorylink, callback) {
+/*var findCategoryByLink = function (categorylink, callback) {
     //var cat = mongoose.model('Category', category);
-    db.Category.findOne({caturl: categorylink}, function (err, category) {
-        findPostsByCategory(category._id,function(err,post){
+    db.Category.findOne({ caturl: categorylink }, function (err, category) {
+        findPostsByCategory(category._id, function (err, post) {
             var obj = category;
             console.log(obj)
-            console.log({category:obj,post:post});
+            console.log({ category: obj, post: post });
             obj.posts = post;
-            callback(null, {category:obj,post:post});
+            callback(null, { category: obj, post: post });
             console.log(obj);
         })
     });
@@ -66,14 +74,14 @@ var findCategoryByLink = function (categorylink, callback) {
         }, function (err, surname, name, since) {
             callback(null, surname, name, since);
         });
-        };
-   }
-        module.exports = router;
     };
 }*/
-var findPostsByCategory = function(categoryid, callback) {
-    db.Post.find({category:categoryid},function(err,post) {
-        callback(null,post);
+module.exports = router;
+/*};
+}*/
+var findPostsByCategory = function (categoryid, callback) {
+    db.Post.find({ category: categoryid }, function (err, post) {
+        callback(null, post);
     })
 }
 module.exports = router;
