@@ -29,11 +29,6 @@ app.engine('hbs', exphbs({
 app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'hbs');
 
-
-//var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bobbo',Name: 'Smithhi' });
-//bob.save(function (err) {
- // if (err) return handleError(err);
-//});
 var postSchema = new Schema({
   public: Boolean,
   title: String,
