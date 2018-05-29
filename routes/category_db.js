@@ -4,15 +4,15 @@ var app = express();
 var db = require('../database.js')
 
 router.post('/', function (req, res, next) {
-  var Author = new db.Author({
-    Name: req.body.name,
-    Surname: req.body.surname,
+  var category = new db.Category({
+    catname: req.body.catname,
+    caturl: req.body.caturl
   });
 
-  Author.save(function(err){
+  category.save(function(err){
     if (err) return console.error(err);
   });
-  res.send('Hallo');
+  res.redirect('/addpost')
 });
 
 module.exports = router;
