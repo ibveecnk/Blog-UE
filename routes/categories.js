@@ -9,8 +9,12 @@ console.log(db.Category.findOne);
 for (var i = 1; i <= 10; i++) {
     post.push({
         title: "Titel " + i,
-        date: new Date(i),
-        author: "Autor " + i,
+        date: new Date(i*1000000),
+        author: {
+            Surname:i,
+            Name:"Autor",
+            Since:new Date(i*1000000),
+        },
         content: "lorem ipsum"
     })
 }
@@ -63,6 +67,11 @@ var findCategoryByLink = function (categorylink, callback) {
             callback(null, surname, name, since);
         });
         };
+<<<<<<< HEAD
     */
    }
         module.exports = router;
+=======
+    }
+        module.exports = router;
+>>>>>>> e1c5afe81747d79103e68b219eb74fda05c5da22
