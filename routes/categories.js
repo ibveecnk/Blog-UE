@@ -10,7 +10,7 @@ for(var i=0;i<10;i++) {
     })
 }
 
-router.get('/food', function(req, res, next){
+/*router.get('/food', function(req, res, next){
     res.render('food')
 });
 router.get('/travel', function(req, res, next){
@@ -24,5 +24,15 @@ router.get('/music', function(req, res, next){
 });
 router.get('/', function(req, res, next){
     res.render('categories',{post:post,title:"Kategorie"})
-});
+});*/
+router.get('/categories/:category', function(req, res, next) {
+    var category = req.params.category;
+    findCategoryByLink(category, function(error,category){
+        if(error) return next(error);
+        return res.render('categories',category);
+    })
+})
+var findCategoryByLink = function(categorylink,callback) {
+    
+}
 module.exports = router;
