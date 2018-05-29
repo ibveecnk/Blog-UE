@@ -9,11 +9,11 @@ console.log(db.Category.findOne);
 for (var i = 1; i <= 10; i++) {
     post.push({
         title: "Titel " + i,
-        date: new Date(i*1000000),
+        date: new Date(i * 1000000),
         author: {
-            Surname:i,
-            Name:"Autor",
-            Since:new Date(i*1000000),
+            Surname: i,
+            Name: "Autor",
+            Since: new Date(i * 1000000),
         },
         content: "lorem ipsum"
     })
@@ -42,22 +42,23 @@ router.all('/:category', function (req, res, next) {
     var category = req.params.category;
     findCategoryByLink(category, function (error, category) {
         if (error) return next(error);
-        console.log(error);
-        /*findAuthorById(surname, name, since, function (error, surname, name, since) {
-                if (error) return next(error);
-                console.log(error)
-                res.render('categories', category, surname, name, since);
-        })*/
+        res.render('categories', category/*, surname, name, since*/);
     })
 })
 var findCategoryByLink = function (categorylink, callback) {
-        //var cat = mongoose.model('Category', category);
-        db.Category.findOne({
-            caturl: categorylink
-        }, function (err, category) {
-            //callback(null, category);
-        });
-/*var findAuthorById = function (surname, name, since, callback) {
+    //var cat = mongoose.model('Category', category);
+    db.Category.findOne({caturl: categorylink}, function (err, category) {
+        findPostsByCategory(category._id,function(err,post){
+            var obj = category;
+            console.log(obj)
+            console.log({category:obj,post:post});
+            obj.posts = post;
+            callback(null, {category:obj,post:post});
+            console.log(obj);
+        })
+    });
+
+    /*var findAuthorById = function (surname, name, since, callback) {
         //var cat = mongoose.model('Category', category);
         db.Category.find({
             Surname: surname,
@@ -67,6 +68,13 @@ var findCategoryByLink = function (categorylink, callback) {
             callback(null, surname, name, since);
         });
         };
-    */
    }
         module.exports = router;
+    };*/
+}
+var findPostsByCategory = function(categoryid, callback) {
+    db.Post.find({category:categoryid},function(err,post) {
+        callback(null,post);
+    })
+}
+module.exports = router;
