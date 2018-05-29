@@ -27,9 +27,6 @@ app.engine('hbs', exphbs({
 }));
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 var postSchema = new Schema({
   public: Boolean,
   title: String,
@@ -43,8 +40,9 @@ var postSchema = new Schema({
 })
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
-
 app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
@@ -69,6 +67,4 @@ app.use(function (err, req, res, next) {
 function handleError(err) {
   console.log(err);
 }
-module.exports = app;
-
 module.exports = app;

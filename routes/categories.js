@@ -37,11 +37,11 @@ router.get('/fashion', function(req, res, next){
     res.render('categories',{post:post,title:"Kategorie"})
 });*/
 
-router.all('/:category', function (req, res, next) {
+/*router.all('/:category', function (req, res, next) {
     var category = req.params.category;
     findCategoryByLink(category, function (error, category) {
         if (error) return next(error);
-        res.render('categories', category/*, surname, name, since*/);
+        res.render('categories', category/*, surname, name, since);
     })
 })
 var findCategoryByLink = function (categorylink, callback) {
@@ -57,7 +57,7 @@ var findCategoryByLink = function (categorylink, callback) {
         })
     });
 
-    /*var findAuthorById = function (surname, name, since, callback) {
+    var findAuthorById = function (surname, name, since, callback) {
         //var cat = mongoose.model('Category', category);
         db.Category.find({
             Surname: surname,
@@ -69,8 +69,8 @@ var findCategoryByLink = function (categorylink, callback) {
         };
    }
         module.exports = router;
-    };*/
-}
+    };
+}*/
 var findPostsByCategory = function(categoryid, callback) {
     db.Post.find({category:categoryid},function(err,post) {
         callback(null,post);
