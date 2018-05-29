@@ -67,6 +67,7 @@ var findCategoryByLink = function (categorylink, callback) {
         }, function (err, surname, name, since) {
             callback(null, surname, name, since);
         });
+<<<<<<< HEAD
     };*/
 }
 var findPostsByCategory = function(categoryid, callback) {
