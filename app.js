@@ -54,9 +54,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
-app.use('/categories', categoriesRouter);
-app.use('/testsubmit', addauthorRouter);
 app.use('/categories/:category', categoriesRouter);
+app.use('/testsubmit', addauthorRouter);
+//app.use('/music', categoriesRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

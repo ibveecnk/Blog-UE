@@ -29,9 +29,6 @@ rou
     mongoose.categorySchema.findOne({ caturl: ca
 router.get('/fashion', function(req, res, next){
     res.render('fashion')
-});
-router.get('/music', function(req, res, next){
-    res.render('music')
 });*/
 /*router.get('/', function(req, res, next){
     res.render('categories',{post:post,title:"Kategorie"})
