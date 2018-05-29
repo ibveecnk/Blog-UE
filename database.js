@@ -40,11 +40,6 @@ var categorySchema = new Schema({
   var Category = mongoose.model('Category', categorySchema);
   var Post = mongoose.model('Post', postSchema);
 
-var cat = new Category({ _id:new mongoose.Types.ObjectId, catname:'travel',caturl: 'travel' });
-cat.save(function (err) {
-if (err) return handleError(err);
-});
-
 connection.on('disconnected', function() {
     console.log('Erfolgreich von Datenbank abgemeldet');
 });
@@ -57,4 +52,4 @@ process.on('SIGINT', function() {
         process.exit(0);
     });
 });
-module.exports = {connection:connection, Category:Category, Author:Author};
+module.exports = {connection:connection, Category:Category, Author:Author, Post:Post};

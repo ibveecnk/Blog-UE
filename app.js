@@ -7,27 +7,27 @@ var logger = require('morgan');
 var express = require('express');
 var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
-var app = express();
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
+var app = express();
+app.locals.globalCat = [{catname:"abc",catlink:"def"},{catname:"a b b c",link:"abcd"},{catname:"ghi",catlink:"fhjgsd"}];
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var app = express();
-app.locals.globalCat = [{catname:"abc",catlink:"def"},{catname:"a b b c",link:"abcd"},{catname:"ghi",catlink:"fhjgsd"}];
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 var categoriesRouter = require('./routes/categories');
-
+var testsubmitRouter= require('./routes/testsubmit')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
   extname: 'hbs',
   layoutsDir: './views/layouts/'
 }));
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'hbs');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 var postSchema = new Schema({
   public: Boolean,
@@ -42,21 +42,16 @@ var postSchema = new Schema({
 })
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({
-  extended: false
-}));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
+app.use('/testsubmit', testsubmitRouter);
 app.use('/:category', categoriesRouter);
-app.use('/testsubmit', addauthorRouter);
-//app.use('/music', categoriesRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

@@ -55,7 +55,7 @@ var findCategoryByLink = function (categorylink, callback) {
         db.Category.findOne({
             caturl: categorylink
         }, function (err, category) {
-            callback(null, category);
+            //callback(null, category);
         });
 /*var findAuthorById = function (surname, name, since, callback) {
         //var cat = mongoose.model('Category', category);
@@ -67,11 +67,6 @@ var findCategoryByLink = function (categorylink, callback) {
             callback(null, surname, name, since);
         });
         };
-<<<<<<< HEAD
     */
    }
         module.exports = router;
-=======
-    }
-        module.exports = router;
->>>>>>> e1c5afe81747d79103e68b219eb74fda05c5da22
