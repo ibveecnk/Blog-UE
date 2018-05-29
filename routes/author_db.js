@@ -4,6 +4,7 @@ var app = express();
 var db = require('../database.js')
 
 router.post('/', function (req, res, next) {
+  res.redirect('/addpost')
   var Author = new db.Author({
     Name: req.body.name,
     Surname: req.body.surname,
@@ -12,7 +13,6 @@ router.post('/', function (req, res, next) {
   Author.save(function(err){
     if (err) return console.error(err);
   });
-  res.send('Hallo');
 });
 
 module.exports = router;
