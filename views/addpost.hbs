@@ -2,13 +2,13 @@
 <form action="/post_db" method="POST">
     <label>
         Öffentlich?
-        <input type="checkbox" id="public">
+        <input type="checkbox" id="public" name="public">
     </label>
-    <input type="text" id="title" placeholder="Titel">
-    <textarea id="content" placeholder="Text"></textarea>
+    <input type="text" id="title" name="title" placeholder="Titel">
+    <textarea id="content" name="content" placeholder="Text"></textarea>
     <label>
         Autor
-        <select>
+        <select id="author" name="author">
             <option value="id" disabled selected>Autor auswählen</option>
             {{#each authors}}
                 <option value="{{this._id}}">{{this.Surname}} {{this.Name}}</option>
@@ -17,7 +17,7 @@
     </label>
     <label>
         Kategorie
-        <select>
+        <select id="category" name="category">
             <option value="id" disabled selected>Kategorie auswählen</option>
             {{#each categories}}
                 <option value="{{this._id}}">{{this.catname}}</option>
