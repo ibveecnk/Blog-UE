@@ -1,2 +1,2 @@
-var dburl = 'mongodb://192.168.99.100:27017/ArticleDB';
+var dburl = 'mongodb://localhost/ArticleDB';
 module.exports = dburl;

@@ -4,8 +4,9 @@ var app = express();
 var localvariables = require('./localvariables.js');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
-mongoose.connect(localvariables);
 var connection = mongoose.connection;
+
+mongoose.connect(localvariables);
 
 connection.on('connected', function() {
     console.log('Erfolgreich mit Datenbank verbunden');
