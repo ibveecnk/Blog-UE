@@ -6,11 +6,11 @@ var array = mongoose.Types.Array;
 var post = [];
 
 console.log(db.Category.findOne);
-for(var i=1;i<=10;i++) {
+for (var i = 1; i <= 10; i++) {
     post.push({
         title: "Titel " + i,
         date: new Date(i),
-        author: "Autor "+i,
+        author: "Autor " + i,
         content: "lorem ipsum"
     })
 }
@@ -37,19 +37,34 @@ router.get('/music', function(req, res, next){
     res.render('categories',{post:post,title:"Kategorie"})
 });*/
 
-router.all('/:category', function(req, res, next) {
+router.all('/:category', function (req, res, next) {
     var category = req.params.category;
-    findCategoryByLink(category, function(error,category){
-        if(error) return next(error);
+    findCategoryByLink(category, function (error, category) {
+        if (error) return next(error);
         console.log(error);
-        res.render('categories',category);
+        findAuthorById(surname, name, since, function (error, surname, name, since) {
+                if (error) return next(error);
+                console.log(error)
+                res.render('categories', category, surname, name, since);
+        })
     })
 })
-var findCategoryByLink = function(categorylink,callback) {
-    console.log(categorylink);
-    //var cat = mongoose.model('Category', category);
-    db.Category.findOne({ caturl: categorylink }, function (err, category) {
-        callback(null, category);
-    });
-};
-module.exports = router;
+var findCategoryByLink = function (categorylink, callback) {
+        //var cat = mongoose.model('Category', category);
+        db.Category.findOne({
+            caturl: categorylink
+        }, function (err, category) {
+            callback(null, category);
+        });
+var findAuthorById = function (surname, name, since, callback) {
+        //var cat = mongoose.model('Category', category);
+        db.Category.find({
+            Surname: surname,
+            Name: name,
+            Since: since
+        }, function (err, surname, name, since) {
+            callback(null, surname, name, since);
+        });
+        };
+    }
+        module.exports = router;
