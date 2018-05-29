@@ -17,7 +17,7 @@ var usersRouter = require('./routes/users');
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 var categoriesRouter = require('./routes/categories');
-var testsubmitRouter= require('./routes/testsubmit')
+var author_dbRouter= require('./routes/author_db')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -48,7 +48,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
-app.use('/testsubmit', testsubmitRouter);
+app.use('/author_db', author_dbRouter);
 app.use('/:category', categoriesRouter);
 
 app.use(function (req, res, next) {
