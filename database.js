@@ -39,10 +39,11 @@ var categorySchema = new Schema({
   var Author = mongoose.model('Author', authorSchema);
   var Category = mongoose.model('Category', categorySchema);
   var Post = mongoose.model('Post', postSchema);
-//  var bob = new Author({ _id:new mongoose.Types.ObjectId,Surname:'Bob',Name: 'Smith' });
-//  bob.save(function (err) {
-//    if (err) return handleError(err);
-//  });
+
+var cat = new Category({ _id:new mongoose.Types.ObjectId, catname:'travel',caturl: 'travel' });
+cat.save(function (err) {
+if (err) return handleError(err);
+});
 
 connection.on('disconnected', function() {
     console.log('Erfolgreich von Datenbank abgemeldet');
@@ -56,4 +57,4 @@ process.on('SIGINT', function() {
         process.exit(0);
     });
 });
-module.exports = connection;
+module.exports = {connection:connection, Category:Category};
