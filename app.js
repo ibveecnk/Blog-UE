@@ -10,7 +10,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 var app = express();
-app.locals.globalCat = [{catname:"abc",catlink:"def"},{catname:"a b b c",link:"abcd"},{catname:"ghi",catlink:"fhjgsd"}];
+var db = require('./database');
+var Array = [];
+
+globalCat = db.Category.find({},function(err,category){});
+console.log(globalCat);
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
