@@ -41,7 +41,9 @@ var successRouter = require('./routes/success');
 var editcategoryRouter = require('./routes/editcategory');
 var editauthorRouter = require('./routes/editauthor');
 var editpostRouter = require('./routes/editpost');
-var author_editRouter = require('./routes/author_edit')
+var author_editRouter = require('./routes/author_edit');
+var post_editRouter = require('./routes/post_edit');
+var category_editRouter = require('./routes/category_edit');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -88,6 +90,8 @@ app.use('/editcategory', editcategoryRouter);
 app.use('/editauthor', editauthorRouter);
 app.use('/editpost', editpostRouter);
 app.use('/author_edit', author_editRouter);
+app.use('/post_edit',post_editRouter);
+app.use('/category_edit',category_editRouter)
 
 app.use(function (req, res, next) {
   next(createError(404));

@@ -4,14 +4,14 @@ var app = express();
 var db = require('../database.js')
 
 router.post('/', function (req, res, next) {
-  db.Author.findById(req.body.id,function(err,author){
+  db.Category.findById(req.body.id,function(err,category){
     if (err) return handleError(err);
 
-    author.Surname = req.body.surname;
-    author.Name = req.body.name;
-    author.save(function(err,updatedAuthor){
+    category.catname = req.body.catname;
+    category.caturl = req.body.caturl;
+    category.save(function(err,updatedCategory){
       if(err) return handleError(err);
-      res.redirect('/editauthor')
+      res.redirect('/editcategory')
     })
   })
 });
