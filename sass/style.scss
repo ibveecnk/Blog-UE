@@ -38,7 +38,20 @@ html, body, * {
          url('../fonts/montserrat-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 $secondary-color: #3996B9;
-  
+
+input[type="submit"] {
+    -webkit-appearance:none;
+    appearance:none;
+    padding:2%;
+    transition:background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out;
+    &:hover {
+        background:$secondary_color;
+        color:white;
+        border-color:white;
+        cursor:pointer;
+        transition:background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out;
+    }
+}
 #main {
     font-family:"Montserrat", sans-serif;
     font-weight:lighter;
