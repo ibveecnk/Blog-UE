@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     res.render('addauthor',{title:"Autor hinzufügen"});
   } else {
     res.redirect('/login');
+    app.locals.admin = false;
   }
 });
 module.exports = router;

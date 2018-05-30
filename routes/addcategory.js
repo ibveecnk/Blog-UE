@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
     res.render('addcategory',{title:"Kategorie hinzufügen"});
   } else {
     res.redirect('/login');
+    app.locals.admin = false;
   }
 });
 module.exports = router;

@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
         res.render('addpost',{categories:result,authors:authors,title:"Post hinzufügen"})
       } else {
         res.redirect('/login')
+        app.locals.admin = false;
       }
     })
   })
