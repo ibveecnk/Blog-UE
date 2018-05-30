@@ -11,9 +11,12 @@ var app = express();
 router.all('/:category', function (req, res, next) {
     var category = req.params.category;
 
-    db.Category.findOne({ caturl: category }, function (err, category) {
-        db.Post.find({ category: category._id }, function (err, posts) {
-        }).populate("author").lean().exec(function (err, posts) {
+    db.Category.findOne({
+        caturl: category
+    }, function (err, category) {
+        db.Post.find({
+            category: category._id
+        }, function (err, posts) {}).populate("author").lean().exec(function (err, posts) {
             posts.forEach(current_post => {
                 var dateObj = new Date(current_post.date);
                 var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
@@ -24,7 +27,11 @@ router.all('/:category', function (req, res, next) {
             } else {
                 app.locals.admin = false;
             }
-            res.render('categories', { category: category, posts: posts, title: "Kategorie: " + category.catname });
+            res.render('categories', {
+                category: category,
+                posts: posts,
+                title: "Kategorie: " + category.catname
+            });
         })
     })
 })
