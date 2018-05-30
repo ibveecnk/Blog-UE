@@ -8,7 +8,7 @@ router.post('/', function (req, res, next) {
     if (err) return handleError(err);
 
     category.catname = req.body.catname;
-    category.caturl = req.body.caturl;
+    //category.caturl = req.body.caturl;
     category.save(function(err,updatedCategory){
       if(err) return handleError(err);
       res.redirect('/editcategory')
