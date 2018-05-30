@@ -10,7 +10,7 @@ router.all('/:category', function (req, res, next) {
 
     db.Category.findOne({caturl:category},function(err,category){
         db.Post.find({category:category._id},function(err,post){
-        }).populate("author").exec(function(err,post){
+        }).populate("author").lean().exec(function(err,post){
             post.forEach(posts => {
                 post.date = moment(post.date).format('YYYY-DD-MM');
             }); 

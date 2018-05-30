@@ -2,7 +2,7 @@
     <h1 id="category_name">{{category.catname}}</h1>
     <ul class="post_list">
     {{#each posts}}
-        <a>
+        <a href="/posts/{{this._id}}">
             <h2>{{this.title}}</h2>
             <div class="post_date">{{this.date}}</div>
             <div class="post_author">Gepostet von: {{this.author.Surname}} {{this.author.Name}}</div>

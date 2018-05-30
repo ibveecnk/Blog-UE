@@ -54,6 +54,7 @@ html, body, * {
       padding: 2% 5%;
       display: block;
       color: black;
+      margin: 1% 0;
       transition: box-shadow .3s ease-in-out, transform .3s ease-in-out; }
       #main .post_list a .post_date {
         color: #999; }
