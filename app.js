@@ -14,7 +14,7 @@ var db = require('./database');
 var Array = [];
 
 globalCat = db.Category.find({},function(err,category){});
-console.log(globalCat);
+//console.log(globalCat);
 
 
 var indexRouter = require('./routes/index');
