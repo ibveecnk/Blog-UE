@@ -6,7 +6,11 @@ var db = require('../database.js')
 router.get('/', function(req, res, next) {
   db.Category.find({},function(err,result){
     db.Author.find({},function(err,authors){
-      res.render('addpost',{categories:result,authors:authors,title:"Post hinzufügen"})
+      if(req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+        res.render('addpost',{categories:result,authors:authors,title:"Post hinzufügen"})
+      } else {
+        res.redirect('/login')
+      }
     })
   })
 });
