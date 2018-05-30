@@ -39,7 +39,6 @@ html, body, * {
   }
 $secondary-color: #3996B9;
   
-  
 #main {
     font-family:"Montserrat", sans-serif;
     font-weight:lighter;
@@ -79,6 +78,14 @@ $secondary-color: #3996B9;
                 cursor:pointer;
             }
         }
+    }
+    .author {
+        padding:0 3%;
+        color:#999;
+        font-size:80%;
+    }
+    .text_content {
+        padding:0 3%;
     }
 }
 .dropdown {
