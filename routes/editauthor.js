@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
+var db = require('../database.js');
 
 /* GET users listing. */
 router.get('/:author', function (req, res, next) {
@@ -11,7 +12,11 @@ router.get('/:author', function (req, res, next) {
     app.locals.admin = false;
     res.redirect('/login')
   }
-  res.render('editauthor', { title: "Autor bearbeiten" });
+  db.Author.findOne({_id:authorId},function(err,result){
+  }).lean().exec(function(err,result){
+    console.log(result.Name);
+    res.render('editauthor', { title: "Autor bearbeiten" ,author:result});
+  })
 });
 
 module.exports = router;

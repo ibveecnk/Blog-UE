@@ -38,7 +38,7 @@ var loginRouter = require('./routes/login');
 var do_loginRouter = require('./routes/do_login');
 var logoutRouter = require('./routes/logout');
 var successRouter = require('./routes/success');
-var editcategoryRouter = require('.router/editcategory');
+var editcategoryRouter = require('./routes/editcategory');
 var editauthorRouter = require('./routes/editauthor');
 var editpostRouter = require('./routes/editpost')
 
