@@ -30,7 +30,8 @@ var post_dbRouter = require('./routes/post_db')
 var addcategoryRouter = require('./routes/addcategory');
 var category_dbRouter = require('./routes/category_db');
 var postsRouter = require('./routes/posts.js');
-var wrong_urlRouter = require('./routes/wrong_url')
+var wrong_urlRouter = require('./routes/wrong_url');
+var loginRouter = require('./routes/login');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -69,6 +70,7 @@ app.use('/post_db', post_dbRouter);
 app.use('/addcategory', addcategoryRouter);
 app.use('/category_db',category_dbRouter);
 app.use('/wrong_url', wrong_urlRouter);
+app.use('/login', loginRouter)
 
 app.use(function (req, res, next) {
   next(createError(404));
