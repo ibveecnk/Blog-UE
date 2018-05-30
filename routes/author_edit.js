@@ -16,8 +16,8 @@ router.post('/', function (req, res, next) {
   });*/
   Authorupd.update({_id: req.body.id}, { 
       Name: req.body.name, 
-      Surname: req.body.surname }
-    ,function (err, authorupd) {
+      Surname: req.body.surname 
+    } ,function (err, authorupd) {
     if (err) return handleError(err);
   });
   res.redirect('/addpost')
