@@ -19,8 +19,8 @@ router.all('/:category', function (req, res, next) {
                 var formatted_date = date.toLocaleDateString();
                 console.log(formatted_date);
                 current_post.date = 'abc';
-
             });
+            
             res.render('categories',{category:category,posts:posts});
         })
     })
