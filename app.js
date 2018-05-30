@@ -68,6 +68,7 @@ app.use('/addpost', addpostRouter);
 app.use('/post_db', post_dbRouter);
 app.use('/addcategory', addcategoryRouter);
 app.use('/category_db',category_dbRouter);
+app.use('/wrong_url', wrong_urlRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
