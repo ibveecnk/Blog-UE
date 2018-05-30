@@ -100,6 +100,25 @@ input[type="submit"] {
     .text_content {
         padding:0 3%;
     }
+    #author_list {
+        margin:0;
+        a {
+            list-style-type:none;
+            display:block;
+            padding:2% 5%;
+            border-bottom:0.1em solid #C93936;
+            border-top:0.1em solid #C93936;
+            margin:1% 0;
+            color:black;
+            transition:box-shadow .3s ease-in-out, transform .3s ease-in-out;
+            &:hover {
+                box-shadow:0 0 100px 1px rgba(0,0,0,0.5);
+                transform:scale(1.05);
+                transition:box-shadow .3s ease-in-out, transform .3s ease-in-out;
+                cursor:pointer;
+            }
+        }
+    }
 }
 .dropdown {
     margin-bottom:1% !important;

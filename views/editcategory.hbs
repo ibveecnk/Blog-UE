@@ -1,9 +1,9 @@
 <div id="main">
     <h1>Kategorie bearbeiten</h1>
     <form action="/category_edit" method="post">
-        <input type="text" id="id" name="id" style="display:none">
-        <input type="text" id="catname" name="catname" placeholder="Kategoriename">
-        <input type="text" id="caturl" name="caturl" placeholder="Kategorie-URL ohne Sonderzeichen oder Leerzeichen">
-        <input type="submit" value="Kategorie erstellen">
+        <input type="text" id="id" name="id" style="display:none" value="{{category._id}}">
+        <input type="text" id="catname" name="catname" placeholder="Kategoriename" value="{{category.catname}}">
+        <input type="text" id="caturl" name="caturl" placeholder="Kategorie-URL ohne Sonderzeichen oder Leerzeichen" value="{{category.caturl}}">
+        <input type="submit" value="Kategorie bearbeiten">
     </form>
 </div>

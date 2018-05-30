@@ -18,5 +18,10 @@ router.get('/:author', function (req, res, next) {
     res.render('editauthor', { title: "Autor bearbeiten" ,author:result});
   })
 });
+router.get('/', function(req, res, next) {
+  db.Author.find({},function(err,result){
+    res.render('authoroverview',{title:"Autor bearbeiten",authors:result});
+  })
+})
 
 module.exports = router;

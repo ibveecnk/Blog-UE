@@ -39,7 +39,10 @@ var postSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  category: ObjectId,
+  category: {
+    type: Schema.Types.ObjectId,
+    ref:'Category'
+  },
 })
 
 var Author = mongoose.model('Author', authorSchema);

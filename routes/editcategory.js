@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
+var db = require('../database.js');
 
 /* GET users listing. */
 router.get('/:category', function (req, res, next) {
@@ -11,7 +12,13 @@ router.get('/:category', function (req, res, next) {
     app.locals.admin = false;
     res.redirect('/login');
   }
-  res.render('kontakt', { title: "Kontakt" });
+  db.Category.findOne({caturl:categoryURL},function(err,result){
+    res.render('editcategory', { title: "Kategorie bearbeiten" , category:result});
+  })
 });
-
+router.get('/', function(req, res, next) {
+  db.Category.find({},function(err,result){
+    res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result});
+  })
+})
 module.exports = router;
