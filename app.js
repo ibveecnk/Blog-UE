@@ -13,8 +13,10 @@ var app = express();
 var db = require('./database');
 var Array = [];
 
-globalCat = db.Category.find({},function(err,category){});
-console.log(globalCat);
+db.Category.find({},function(err,category){app.locals.globalCat = category});
+console.log(app.locals.globalCat)
+//console.log(globalCat);
+//app.locals.globalCat = [{catname:"abc",caturl:"def"}];
 
 
 var indexRouter = require('./routes/index');
