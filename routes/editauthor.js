@@ -14,7 +14,7 @@ router.get('/:author', function (req, res, next) {
   }
   db.Author.findOne({_id:authorId},function(err,result){
   }).lean().exec(function(err,result){
-    console.log(result.Name);
+    //console.log(result.Name);
     res.render('editauthor', { title: "Autor bearbeiten" ,author:result});
   })
 });
