@@ -19,7 +19,7 @@ app.get('/', function (req, res, next) {
   }
   next();
 })
-db.Category.find({}, function (err, category) { app.locals.globalCat = category });
+db.Category.find({}).lean().exec(function (err, category) { app.locals.globalCat = category });
 
 
 var indexRouter = require('./routes/index');
