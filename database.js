@@ -31,7 +31,10 @@ var postSchema = new Schema({
   public: Boolean,
   title: String,
   content: String,
-  author: { type: Schema.Types.ObjectId, ref: 'Author' },
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: 'Author'
+  },
   date: {
     type: Date,
     default: Date.now
@@ -59,4 +62,9 @@ process.on('SIGINT', function () {
   });
 });
 
-module.exports = { connection: connection, Category: Category, Author: Author, Post: Post };
+module.exports = {
+  connection: connection,
+  Category: Category,
+  Author: Author,
+  Post: Post
+};
