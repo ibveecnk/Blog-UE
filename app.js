@@ -10,9 +10,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 var app = express();
+app.use(cookieParser())
 var db = require('./database');
 var Array = [];
-
+app.get('/',function(req,res,next){
+if(req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+  app.locals.admin = true;
+}
+next();
+})
 db.Category.find({},function(err,category){app.locals.globalCat = category});
 //console.log(globalCat);
 //app.locals.globalCat = [{catname:"abc",caturl:"def"}];
@@ -33,6 +39,7 @@ var wrong_urlRouter = require('./routes/wrong_url');
 var loginRouter = require('./routes/login');
 var do_loginRouter = require('./routes/do_login');
 var logoutRouter = require('./routes/logout')
+var successRouter = require('./routes/success')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -74,6 +81,7 @@ app.use('/wrong_url', wrong_urlRouter);
 app.use('/login', loginRouter);
 app.use('/do_login', do_loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/success', successRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));

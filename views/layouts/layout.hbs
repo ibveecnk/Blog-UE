@@ -22,7 +22,8 @@
                 {{/each}}
             </ul>
         </li>
-        <li>
+        {{#if admin}}
+            <li>
             <a>ADMIN</a>
             <ul class="menu">
                 <li>
@@ -35,7 +36,8 @@
                     <a href="/addpost">NEUER POST</a>
                 </li>
             </ul>
-        </li>
+            </li>
+        {{/if}}
     </ul>
     {{{ body }}}
     <script src="/scripts/jquery.min.js"></script>
