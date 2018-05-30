@@ -38,9 +38,10 @@ var loginRouter = require('./routes/login');
 var do_loginRouter = require('./routes/do_login');
 var logoutRouter = require('./routes/logout');
 var successRouter = require('./routes/success');
-var editcategoryRouter = require('.router/editcategory');
+var editcategoryRouter = require('./routes/editcategory');
 var editauthorRouter = require('./routes/editauthor');
-var editpostRouter = require('./routes/editpost')
+var editpostRouter = require('./routes/editpost');
+var author_editRouter = require('./routes/author_edit')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -86,6 +87,7 @@ app.use('/success', successRouter);
 app.use('/editcategory', editcategoryRouter);
 app.use('/editauthor', editauthorRouter);
 app.use('/editpost', editpostRouter);
+app.use('/author_edit', author_editRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
