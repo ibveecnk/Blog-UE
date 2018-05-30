@@ -30,6 +30,7 @@ var post_dbRouter = require('./routes/post_db')
 var addcategoryRouter = require('./routes/addcategory');
 var category_dbRouter = require('./routes/category_db');
 var postsRouter = require('./routes/posts.js');
+var wrong_urlRouter = require('./routes/wrong_url')
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',

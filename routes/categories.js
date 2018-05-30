@@ -14,13 +14,10 @@ router.all('/:category', function (req, res, next) {
         db.Post.find({category:category._id},function(err,posts){
         }).populate("author").lean().exec(function(err,posts){
             posts.forEach(current_post => {
-                current_post.post = '';
-                var date = new Date(current_post.date);
-                var formatted_date = date.toLocaleDateString();
-                console.log(formatted_date);
-                current_post.date = 'abc';
+                var dateObj = new Date(current_post.date);
+                var months = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
+                current_post.date = ("0"+dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0"+dateObj.getHours()).slice(-2) + ":" + ("0"+dateObj.getMinutes()).slice(-2) + " Uhr";
             });
-            
             res.render('categories',{category:category,posts:posts});
         })
     })

@@ -45,7 +45,7 @@ var categorySchema = new Schema({
 
 
 connection.on('disconnected', function() {
-    console.log('Erfolgreich von Datenbank abgemeldet');
+    console.log('Datenbankverbindung verloren');
 });
 
 connection.on('error', function(error) {
