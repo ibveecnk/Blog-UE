@@ -21,7 +21,7 @@ router.all('/:category', function (req, res, next) {
                 current_post.date = 'abc';
             });
             
-            res.render('categories',{category:category,posts:posts});
+            res.render('categories',{category:category,posts:posts,title:"Kategorie: "+category.catname});
         })
     })
 })

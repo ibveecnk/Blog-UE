@@ -6,7 +6,7 @@ var db = require('../database.js')
 router.get('/', function(req, res, next) {
   db.Category.find({},function(err,result){
     db.Author.find({},function(err,authors){
-      res.render('addpost',{categories:result,authors:authors})
+      res.render('addpost',{categories:result,authors:authors,title:"Post hinzufügen"})
     })
   })
 });

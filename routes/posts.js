@@ -12,7 +12,7 @@ router.all('/:post', function(req, res, next) {
         var dateObj = new Date(post.date);
         var months = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
         post.date = ("0"+dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0"+dateObj.getHours()).slice(-2) + ":" + ("0"+dateObj.getMinutes()).slice(-2) + " Uhr";
-        res.render('posts',{post:post})
+        res.render('posts',{post:post,title:"Post: "+post.title})
     })
 })
 
