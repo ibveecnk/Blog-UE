@@ -18,7 +18,8 @@ router.all('/:category', function (req, res, next) {
                 var months = ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"];
                 current_post.date = ("0"+dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0"+dateObj.getHours()).slice(-2) + ":" + ("0"+dateObj.getMinutes()).slice(-2) + " Uhr";
             });
-            res.render('categories',{category:category,posts:posts});
+            
+            res.render('categories',{category:category,posts:posts,title:"Kategorie: "+category.catname});
         })
     })
 })

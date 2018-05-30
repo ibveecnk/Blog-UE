@@ -5,6 +5,6 @@ var db = require('../database.js');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('addcategory');
+  res.render('addcategory',{title:"Kategorie hinzufügen"});
 });
 module.exports = router;
