@@ -13,7 +13,7 @@ router.post('/', function (req, res, next) {
     category: req.body.category,
   });
 
-  Post.save(function(err){
+  Post.save(function (err) {
     if (err) return console.error(err);
   });
 });

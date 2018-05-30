@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
     Surname: req.body.surname,
   });
 
-  Author.save(function(err){
+  Author.save(function (err) {
     if (err) return console.error(err);
   });
 });

@@ -13,15 +13,13 @@ var app = express();
 app.use(cookieParser())
 var db = require('./database');
 var Array = [];
-app.get('/',function(req,res,next){
-if(req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-  app.locals.admin = true;
-}
-next();
+app.get('/', function (req, res, next) {
+  if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+    app.locals.admin = true;
+  }
+  next();
 })
-db.Category.find({},function(err,category){app.locals.globalCat = category});
-//console.log(globalCat);
-//app.locals.globalCat = [{catname:"abc",caturl:"def"}];
+db.Category.find({}, function (err, category) { app.locals.globalCat = category });
 
 
 var indexRouter = require('./routes/index');
@@ -72,11 +70,11 @@ app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
 app.use('/author_db', author_dbRouter);
 app.use('/categories', categoriesRouter);
-app.use('/posts',postsRouter);
+app.use('/posts', postsRouter);
 app.use('/addpost', addpostRouter);
 app.use('/post_db', post_dbRouter);
 app.use('/addcategory', addcategoryRouter);
-app.use('/category_db',category_dbRouter);
+app.use('/category_db', category_dbRouter);
 app.use('/wrong_url', wrong_urlRouter);
 app.use('/login', loginRouter);
 app.use('/do_login', do_loginRouter);

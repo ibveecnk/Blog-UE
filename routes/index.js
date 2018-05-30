@@ -5,13 +5,13 @@ var mongoose = require('mongoose')
 var app = express();
 
 
-router.get('/', function(req, res, next) {
-  if(req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+router.get('/', function (req, res, next) {
+  if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     app.locals.admin = true;
   } else {
     app.locals.admin = false;
   }
-  res.render('index', { title: 'webprojekt Blog'});
+  res.render('index', { title: 'webprojekt Blog' });
 });
 
 module.exports = router;
