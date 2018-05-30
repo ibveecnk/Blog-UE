@@ -12,7 +12,7 @@ router.all('/:category', function (req, res, next) {
 
     db.Category.findOne({caturl:category},function(err,category){
         db.Post.find({category:category._id},function(err,posts){
-        }).populate("author").exec(function(err,posts){
+        }).populate("author").lean().exec(function(err,posts){
             posts.forEach(current_post => {
                 current_post.post = '';
                 var date = new Date(current_post.date);
