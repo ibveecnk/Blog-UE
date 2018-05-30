@@ -1,0 +1,27 @@
+<div id="main">
+    <h1>Post hinzufügen</h1>
+    <form action="/post_edit" method="POST">
+        <input type="text" id="id" name="id" style="display:none">
+        <input type="text" id="title" name="title" placeholder="Titel">
+        <textarea id="content" name="content" placeholder="Text"></textarea>
+        <label>
+            Autor
+            <select id="author" name="author">
+                <option value="id" disabled selected>Autor auswählen</option>
+                {{#each authors}}
+                    <option value="{{this._id}}">{{this.Surname}} {{this.Name}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <label>
+            Kategorie
+            <select id="category" name="category">
+                <option value="id" disabled selected>Kategorie auswählen</option>
+                {{#each categories}}
+                    <option value="{{this._id}}">{{this.catname}}</option>
+                {{/each}}
+            </select>
+        </label>
+        <input type="submit" value="Post hinzufügen">
+    </form>
+</div>
