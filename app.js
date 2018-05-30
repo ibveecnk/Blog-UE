@@ -14,7 +14,6 @@ var db = require('./database');
 var Array = [];
 
 db.Category.find({},function(err,category){app.locals.globalCat = category});
-console.log(app.locals.globalCat)
 //console.log(globalCat);
 //app.locals.globalCat = [{catname:"abc",caturl:"def"}];
 
@@ -32,6 +31,7 @@ var category_dbRouter = require('./routes/category_db');
 var postsRouter = require('./routes/posts.js');
 var wrong_urlRouter = require('./routes/wrong_url');
 var loginRouter = require('./routes/login');
+var do_loginRouter = require('./routes/do_login');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -71,6 +71,7 @@ app.use('/addcategory', addcategoryRouter);
 app.use('/category_db',category_dbRouter);
 app.use('/wrong_url', wrong_urlRouter);
 app.use('/login', loginRouter)
+app.use('/do_login', do_loginRouter)
 
 app.use(function (req, res, next) {
   next(createError(404));
