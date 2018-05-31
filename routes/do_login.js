@@ -6,14 +6,14 @@ var app = express();
 
 router.post('/', function (req, res, next) {
   if (req.body.password === 'admin') {
-    res.cookie('logged_in', '01e6efdb-9421-4271-83eb-b685f618e2c3');
     var ip = (req.headers['x-forwarded-for'] ||
     req.connection.remoteAddress ||
     req.socket.remoteAddress ||
     req.connection.socket.remoteAddress).split(",")[0];
+    if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
    console.log('User with IP: ' + ip + " logged in")
     app.locals.admin = true;
-    res.redirect('success');
+    res.redirect('/');
 //Login log
   } else {
     app.locals.admin = false;
@@ -21,9 +21,9 @@ router.post('/', function (req, res, next) {
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress).split(",")[0];
-    console.log('User with IP: ' + ip + " failed to login with Password:" + req.body.password)
+    console.log('User with IP: ' + ip + " failed to login with Password: " + req.body.password)
     res.redirect('/');
   }
-});
+}});
 
 module.exports = router;

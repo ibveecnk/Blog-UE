@@ -1,20 +1,20 @@
 var createError = require('http-errors');
 var express = require('express');
+var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
-var express = require('express');
 var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 var app = express();
-app.use(cookieParser())
+app.use(cookieParser("Servus"));
 var db = require('./database');
 var Array = [];
 app.get('/', function (req, res, next) {
-  if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+  if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     app.locals.admin = true;
   }
   next();

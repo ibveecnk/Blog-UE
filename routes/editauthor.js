@@ -6,7 +6,7 @@ var db = require('../database.js');
 /* GET users listing. */
 router.get('/:author', function (req, res, next) {
   var authorId = req.params.author;
-  if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+  if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     app.locals.admin = true;
   } else {
     app.locals.admin = false;
