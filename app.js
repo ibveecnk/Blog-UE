@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var app = express();
+var uuid = require('uuid/v4');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -9,8 +10,8 @@ var exphbs = require('express-handlebars');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
-var app = express();
-app.use(cookieParser("Servus"));
+var encryption = uuid();
+app.use(cookieParser(encryption));
 var db = require('./database');
 var Array = [];
 app.get('/', function (req, res, next) {

@@ -10,7 +10,7 @@ router.post('/', function (req, res, next) {
     req.connection.remoteAddress ||
     req.socket.remoteAddress ||
     req.connection.socket.remoteAddress).split(",")[0];
-    if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+    res.cookie('logged_in', '01e6efdb-9421-4271-83eb-b685f618e2c3', { signed: true });
    console.log('User with IP: ' + ip + " logged in")
     app.locals.admin = true;
     res.redirect('/');
@@ -24,6 +24,6 @@ router.post('/', function (req, res, next) {
     console.log('User with IP: ' + ip + " failed to login with Password: " + req.body.password)
     res.redirect('/');
   }
-}});
+});
 
 module.exports = router;
