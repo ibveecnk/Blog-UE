@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
       req.connection.socket.remoteAddress).split(",")[0];
-    console.log('User with IP: ' + ip + " failed to login. Password:" + req.body.password)
+    console.log('User with IP: ' + ip + " failed to login with Password:" + req.body.password)
     res.redirect('/');
   }
 });
