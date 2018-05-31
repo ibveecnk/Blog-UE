@@ -14,7 +14,7 @@ router.post('/', function (req, res, next) {
    console.log('User with IP: ' + ip + " logged in")
     app.locals.admin = true;
     res.redirect('success');
-
+//Login log
   } else {
     app.locals.admin = false;
     var ip = (req.headers['x-forwarded-for'] ||
