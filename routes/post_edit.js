@@ -19,6 +19,7 @@ router.post('/', function (req, res, next) {
       } else {
         db.Post.findByIdAndRemove(req.body.id, function (err, post) {
           if (err) return handleError(err);
+          res.redirect('/editpost');
         })
       }
     }
