@@ -26,7 +26,6 @@ app.get('/*', function(req, res, next){
   });
 })
 
-
 var indexRouter = require('./routes/index');
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');

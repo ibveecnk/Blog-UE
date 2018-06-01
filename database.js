@@ -9,7 +9,7 @@ var connection = mongoose.connection;
 mongoose.connect(localvariables);
 
 connection.on('connected', function () {
-  console.log('Erfolgreich mit Datenbank verbunden');
+  console.log('Erfolgreich mit Datenbank unter ' + localvariables + ' verbunden');
 });
 
 
