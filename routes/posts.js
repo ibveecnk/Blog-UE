@@ -14,6 +14,9 @@ router.all('/:post', function (req, res, next) {
             var dateObj = new Date(post.date);
             var months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
             post.date = ('0' + dateObj.getDate()).slice(-2) + '. ' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear() + ' | ' + ('0' + dateObj.getHours()).slice(-2) + ':' + ('0' + dateObj.getMinutes()).slice(-2) + ' Uhr';
+            if(post.author == null) {
+                post.author = {Surname: 'Anonymer', Name: 'Autor'};
+            }
             res.render('posts', { post: post, title: 'Post: ' + post.title, admin: req.admin, globalCategory: req.categories })
         }
     })
@@ -25,6 +28,9 @@ router.get('/', function (req, res, next) {
             var months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
             current_post.date = ('0' + dateObj.getDate()).slice(-2) + '. ' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear() + ' | ' + ('0' + dateObj.getHours()).slice(-2) + ':' + ('0' + dateObj.getMinutes()).slice(-2) + ' Uhr';
             current_post.path = 'posts/';
+            if(current_post.author == null) {
+                current_post.author = {Surname: 'Anonymer', Name: 'Autor'};
+            }
         });
         res.render('postoverview', { title: 'Alle Posts', post: result, admin: req.admin, globalCategory: req.categories })
     })

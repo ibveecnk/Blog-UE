@@ -27,6 +27,9 @@ router.all('/:category', function (req, res, next) {
                     var dateObj = new Date(current_post.date);
                     var months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
                     current_post.date = ('0' + dateObj.getDate()).slice(-2) + '. ' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear() + ' | ' + ('0' + dateObj.getHours()).slice(-2) + ':' + ('0' + dateObj.getMinutes()).slice(-2) + ' Uhr';
+                    if(current_post.author == null) {
+                        current_post.author = {Surname: 'Anonymer', Name: 'Autor'};
+                    }
                 });
                 if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
                     app.locals.admin = true;
