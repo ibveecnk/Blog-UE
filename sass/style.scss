@@ -45,6 +45,7 @@ input[type="submit"] {
     padding:2%;
     border: 1px solid rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
     border-color:rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-style:solid;
     background:white;
     transition:background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out;
     &:enabled:hover {

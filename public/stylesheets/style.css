@@ -39,6 +39,7 @@ input[type="submit"] {
   padding: 2%;
   border: 1px solid #d8d8d8 #d1d1d1 #bababa;
   border-color: #d8d8d8 #d1d1d1 #bababa;
+  border-style: solid;
   background: white;
   transition: background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out; }
   input[type="submit"]:enabled:hover {
