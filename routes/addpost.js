@@ -21,7 +21,7 @@ router.get('/', function (req, res, next) {
     db.Category.find({}).lean().exec(function(err,categories){
       console.log(categories);
       db.Author.find({}).lean().exec(function(err,authors){
-        res.render('addpost',{categories: categories, authors: authors, title: 'Post inzufügen', admin:req.admin});
+        res.render('addpost',{categories: categories, authors: authors, title: 'Post inzufügen', admin:req.admin, globalCategory: req.categories});
       })
     })
   } else {

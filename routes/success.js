@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
     } else {
         //app.locals.admin = false;
     }
-    res.render('success', { title: 'Erfolgreich eingeloggt.' , admin:req.admin});
+    res.render('success', { title: 'Erfolgreich eingeloggt.' , admin:req.admin, globalCategory: req.categories});
 });
 
 module.exports = router;

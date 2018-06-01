@@ -11,7 +11,7 @@ router.get('/:author', function (req, res, next) {
     db.Author.findOne({_id:authorId},function(err,result){
     }).lean().exec(function(err,result){
       console.log(result.Name);
-      res.render('editauthor', { title: "Autor bearbeiten" ,author:result, admin:req.admin});
+      res.render('editauthor', { title: "Autor bearbeiten" ,author:result, admin:req.admin, globalCategory: req.categories});
     })
   } else {
     //app.locals.admin = false;
@@ -20,7 +20,7 @@ router.get('/:author', function (req, res, next) {
 });
 router.get('/', function(req, res, next) {
   db.Author.find({},function(err,result){
-    res.render('authoroverview',{title:"Autor bearbeiten",authors:result, admin:req.admin});
+    res.render('authoroverview',{title:"Autor bearbeiten",authors:result, admin:req.admin, globalCategory: req.categories});
   })
 })
 

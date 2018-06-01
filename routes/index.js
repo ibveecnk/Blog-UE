@@ -12,7 +12,10 @@ router.get('/', function (req, res, next) {
   } else {
     req.admin = false;
   }
-  res.render('index', { title: 'webprojekt Blog' , admin:req.admin, admin:req.admin});
+  db.Category.find({}).lean().exec(function (err, category) {
+    req.categories = category;
+    res.render('index', { title: 'webprojekt Blog' , admin:req.admin, admin:req.admin, globalCategory: req.categories});
+  });
 });
 
 module.exports = router;

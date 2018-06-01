@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
      req.socket.remoteAddress ||
      req.connection.socket.remoteAddress).split(",")[0];
     console.log('User with IP: ' + ip + " logged out")
-    res.render('success', { title: 'Erfolgreich ausgeloggt' , admin:req.admin});
+    res.render('success', { title: 'Erfolgreich ausgeloggt' , admin:req.admin, globalCategory: req.categories});
   } else {
     res.redirect('/');
   }
