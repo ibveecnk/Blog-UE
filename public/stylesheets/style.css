@@ -68,6 +68,8 @@ input[type="submit"] {
       color: black;
       margin: 1% 0;
       transition: box-shadow .3s ease-in-out, transform .3s ease-in-out; }
+      #main .post_list a h2 {
+        overflow: hidden; }
       #main .post_list a .post_date {
         color: #999; }
       #main .post_list a .post_content_preview {
@@ -83,7 +85,9 @@ input[type="submit"] {
     color: #999;
     font-size: 80%; }
   #main .text_content {
-    padding: 0 3%; }
+    padding: 0 3%;
+    word-break: break-word;
+    white-space: normal; }
   #main #author_list {
     margin: 0; }
     #main #author_list a {
