@@ -30,7 +30,7 @@ router.all('/:category', function (req, res, next) {
             res.render('categories', {
                 category: category,
                 posts: posts,
-                title: "Kategorie: " + category.catname
+                title: "Kategorie: " + category.catname, admin:req.admin
             });
         })
     })

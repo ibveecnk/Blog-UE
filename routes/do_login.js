@@ -12,11 +12,11 @@ router.post('/', function (req, res, next) {
     req.connection.socket.remoteAddress).split(",")[0];
     res.cookie('logged_in', '01e6efdb-9421-4271-83eb-b685f618e2c3', { signed: true, maxAge: 3600000 });
    console.log('User with IP: ' + ip + " logged in")
-    app.locals.admin = true;
+    //app.locals.admin = true;
     res.redirect('/');
 //Login log
   } else {
-    app.locals.admin = false;
+    //app.locals.admin = false;
     var ip = (req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
