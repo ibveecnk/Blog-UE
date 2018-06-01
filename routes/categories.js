@@ -14,7 +14,6 @@ router.all('/:category', function (req, res, next) {
     db.Category.findOne({
         caturl: category
     }, function (err, category) {
-        console.log(category);
         db.Post.find({
             category: category._id
         }, function (err, posts) {}).populate("author").lean().exec(function (err, posts) {
