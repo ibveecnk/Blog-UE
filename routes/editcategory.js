@@ -7,18 +7,18 @@ var db = require('../database.js');
 router.get('/:category', function (req, res, next) {
   var categoryURL = req.params.category;
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-    app.locals.admin = true;
+    //app.locals.admin = true;
   } else {
-    app.locals.admin = false;
+    //app.locals.admin = false;
     res.redirect('/login');
   }
   db.Category.findOne({caturl:categoryURL},function(err,result){
-    res.render('editcategory', { title: "Kategorie bearbeiten" , category:result});
+    res.render('editcategory', { title: "Kategorie bearbeiten" , category:result, admin:req.admin});
   })
 });
 router.get('/', function(req, res, next) {
   db.Category.find({},function(err,result){
-    res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result});
+    res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result, admin:req.admin});
   })
 })
 module.exports = router;

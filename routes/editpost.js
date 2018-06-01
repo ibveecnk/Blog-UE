@@ -7,9 +7,9 @@ var db = require('../database.js');
 router.get('/:post', function (req, res, next) {
   var postID = req.params.post;
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-    app.locals.admin = true;
+    //app.locals.admin = true;
   } else {
-    app.locals.admin = false;
+    //app.locals.admin = false;
     res.redirect('/login')
   }
   db.Post.findOne({_id:postID}).populate('author').exec(function(err,thispost){
@@ -29,7 +29,7 @@ router.get('/:post', function (req, res, next) {
             authors[i].selected = false;
           } 
         }
-        res.render('editpost', { title: "Post bearbeiten" , post:thispost, categories:categories, authors:authors});
+        res.render('editpost', { title: "Post bearbeiten" , post:thispost, categories:categories, authors:authors, admin:req.admin});
       })
     })
   })
@@ -41,7 +41,7 @@ router.get('/', function(req, res, next) {
       var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
       current_post.date = ("0" + dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0" + dateObj.getHours()).slice(-2) + ":" + ("0" + dateObj.getMinutes()).slice(-2) + " Uhr";
     });
-    res.render('postoverview',{title:"Posts bearbeiten" , post:result})
+    res.render('postoverview',{title:"Posts bearbeiten" , post:result, admin:req.admin})
   })
 })
 module.exports = router;
