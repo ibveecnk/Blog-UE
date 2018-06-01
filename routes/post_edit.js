@@ -6,7 +6,7 @@ var db = require('../database.js')
 router.post('/', function (req, res, next) {
   db.Post.findById(req.body.id,function(err,Post){
     if (err) return handleError(err);
-
+    if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     Post.title = req.body.title;
     Post.content = req.body.content;
     Post.author = req.body.author;
@@ -15,7 +15,7 @@ router.post('/', function (req, res, next) {
       if(err) return handleError(err);
       res.redirect('/editpost')
     })
-  })
+  }})
 });
 
 module.exports = router;

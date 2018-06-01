@@ -9,12 +9,9 @@ router.post('/', function (req, res, next) {
     catname: req.body.catname,
     caturl: req.body.caturl
   });
-<<<<<<< HEAD
-  //app.locals.push({ catname: req.body.catname, caturl: req.body.caturl })
-=======
   //console.log(app.locals.globalCat)
   //app.locals.globalCat.push({ catname: req.body.catname, caturl: req.body.caturl })
->>>>>>> 7664876682b90361f149fe43d5edbe11bcd48017
+  if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
   db.Category.count({ caturl: req.body.caturl }, function (err, count) {
     if (count === 0) {
       category.save(function (err) {
@@ -25,6 +22,6 @@ router.post('/', function (req, res, next) {
       res.redirect('/wrong_url');
     }
   });
-});
+}});
 
 module.exports = router;

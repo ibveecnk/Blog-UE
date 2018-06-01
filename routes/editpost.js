@@ -7,38 +7,11 @@ var db = require('../database.js');
 router.get('/:post', function (req, res, next) {
   var postID = req.params.post;
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-<<<<<<< HEAD
-    app.locals.admin = true;
-    db.Post.findOne({_id:postID}).populate('author').exec(function(err,thispost){
-      db.Category.find({}).lean().exec(function(err,categories){
-        db.Author.find({}).lean().exec(function(err,authors){
-          for(var i=0;i<categories.length;i++) {
-            if(categories[i]._id.toString() == thispost.category.toString()) {
-              categories[i].selected = true;
-            } else {
-              categories[i].selected = false;
-            }
-          }
-          for(var i=0;i<authors.length;i++) {
-            if(authors[i]._id.toString() == thispost.author._id.toString()) {
-              authors[i].selected = true;
-            } else {
-              authors[i].selected = false;
-            } 
-          }
-          res.render('editpost', { title: "Post bearbeiten" , post:thispost, categories:categories, authors:authors});
-        })
-      })
-    })
-=======
     //app.locals.admin = true;
->>>>>>> 7664876682b90361f149fe43d5edbe11bcd48017
   } else {
     //app.locals.admin = false;
     res.redirect('/login')
   }
-<<<<<<< HEAD
-=======
   db.Post.findOne({_id:postID}).populate('author').exec(function(err,thispost){
     db.Category.find({}).lean().exec(function(err,categories){
       db.Author.find({}).lean().exec(function(err,authors){
@@ -60,7 +33,6 @@ router.get('/:post', function (req, res, next) {
       })
     })
   })
->>>>>>> 7664876682b90361f149fe43d5edbe11bcd48017
 });
 router.get('/', function(req, res, next) {
   db.Post.find({}).populate('author').populate('category').lean().exec(function(err,result){
