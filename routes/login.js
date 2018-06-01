@@ -9,6 +9,9 @@ router.get('/', function (req, res, next) {
     } else {
         //app.locals.admin = false;
     }
+    console.log("LOGIN")
+    console.log(req.admin)
+    console.log(req.categories);
     res.render('login', { title: "Login" , admin:req.admin, globalCategory: req.categories});
 });
 
