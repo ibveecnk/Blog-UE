@@ -18,6 +18,14 @@ var categorySchema = new Schema({
   caturl: String,
 })
 
+var commentSchema = new Schema({
+  Username: String,
+  PostID: {
+    type: Schema.Types.ObjectId,
+    ref:'Post'
+  }
+})
+
 var authorSchema = new Schema({
   Surname: String,
   Name: String,
@@ -46,6 +54,7 @@ var postSchema = new Schema({
 })
 
 var Author = mongoose.model('Author', authorSchema);
+var Comment = mongoose.model('Comment', commentSchema)
 var Category = mongoose.model('Category', categorySchema);
 var Post = mongoose.model('Post', postSchema);
 
@@ -68,6 +77,7 @@ process.on('SIGINT', function () {
 module.exports = {
   connection: connection,
   Category: Category,
+  Comment: Comment,
   Author: Author,
   Post: Post
 };
