@@ -9,12 +9,13 @@ router.post('/', function (req, res, next) {
 
     category.catname = req.body.catname;
     //category.caturl = req.body.caturl;
+    if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     category.save(function(err,updatedCategory){
       if(err) return handleError(err);
       //db.Category.find({}, function (err, category) { app.locals.globalCat = category });
       res.redirect('/editcategory')
     })
-  })
+  }})
 });
 
 module.exports = router;
