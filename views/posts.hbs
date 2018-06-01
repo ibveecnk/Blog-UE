@@ -5,7 +5,7 @@
     </div>
     <br>
     <pre class='text_content'>{{post.content}}</pre>
-    <form action='addcomment' method='post' id='comment_section'>
+    <form action='/addcomment' method='post' id='comment_section'>
         <input type='text' name='id' value='{{post._id}}' style='display:none'>
         <div class='grid-x grid-margin-x'>
             <div class='small-3 medium-3 large-3 cell'>
@@ -21,4 +21,14 @@
             </div>
         </div>
     </form>
+    <div id='comments'>
+        {{#each comments}}
+        <div class='comment'>
+            <div class='comment_author'>
+                Kommentar von {{this.username}}:
+            </div>
+            <pre class='message'>{{this.commentmsg}}</pre>
+        </div>
+        {{/each}}
+    </div>
 </div>

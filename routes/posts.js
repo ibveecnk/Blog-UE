@@ -17,7 +17,9 @@ router.all('/:post', function (req, res, next) {
             if(post.author == null) {
                 post.author = {Surname: 'Anonymer', Name: 'Autor'};
             }
-            res.render('posts', { post: post, title: 'Post: ' + post.title, admin: req.admin, globalCategory: req.categories })
+            db.Comment.find({postID:post}).lean().exec(function(err,comments){
+                res.render('posts', { comments:comments,post: post, title: 'Post: ' + post.title, admin: req.admin, globalCategory: req.categories })
+            })
         }
     })
 })

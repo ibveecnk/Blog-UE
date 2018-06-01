@@ -33,7 +33,6 @@ function startPostChecker() {
     }, 20)
 }
 var form = document.querySelector('.form');
-console.log(form.id)
 if (form != null) {
     if (form.getAttribute('id') == 'authorform') {
         startAuthorChecker();

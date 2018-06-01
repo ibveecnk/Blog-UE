@@ -117,7 +117,7 @@ input[type='submit'] {
     .text_content {
         padding:0 3%;
         word-break:break-word;
-        white-space:pre;
+        white-space:normal;
         font-family:'Work Sans',sans-serif;
         font-weight:normal;
     }
@@ -143,6 +143,23 @@ input[type='submit'] {
     #comment_section {
         padding:0 3%;
         margin-top:10%;
+    }
+    #comments {
+        padding:0 3%;
+    }
+    .comment {
+        margin:2% 0;
+        border-bottom:1px solid #ddd;
+        border-top:1px solid #ddd;
+        .comment_author {
+            color:#999;
+        }
+        .message {
+            font-family:"Work Sans",sans-serif;
+            font-weight:normal;
+            word-break:break-word;
+            white-space:normal;
+        }
     }
 }
 .dropdown {
