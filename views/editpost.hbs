@@ -20,7 +20,7 @@
         <label>
             Kategorie
             <select id='category' name='category' value='{{post.category}}'>
-                <option value='id' disabled selected>Kategorie auswählen</option>
+                <option value='id' disabled>Kategorie auswählen</option>
                 {{#each categories}}
                     {{#if this.selected}}
                         <option value='{{this._id}}' selected>{{this.catname}}</option>

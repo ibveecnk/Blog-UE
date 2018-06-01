@@ -33,12 +33,13 @@ function startPostChecker() {
     }, 20)
 }
 var form = document.querySelector('.form');
+console.log(form.id)
 if (form != null) {
-    if (form.id == 'authorform') {
+    if (form.getAttribute('id') == 'authorform') {
         startAuthorChecker();
-    } else if (form.id == 'categoryform') {
+    } else if (form.getAttribute('id') == 'categoryform') {
         startCategoryChecker();
-    } else if (form.id == 'postform') {
+    } else if (form.getAttribute('id') == 'postform') {
         startPostChecker();
     }
 }
