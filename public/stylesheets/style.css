@@ -48,6 +48,14 @@ input[type='submit'] {
     border-color: white;
     cursor: pointer;
     transition: background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out; }
+  input[type='submit'].delete {
+    background: #C93936;
+    color: white;
+    border-color: white; }
+    input[type='submit'].delete:enabled:hover {
+      background: #cd5c5c;
+      cursor: pointer;
+      transition: background .3s ease-in-out; }
 
 #main {
   font-family: 'Montserrat', sans-serif;

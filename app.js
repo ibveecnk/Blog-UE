@@ -13,7 +13,7 @@ var Schema = mongoose.Schema,
 var encryption = uuid();
 app.use(cookieParser(encryption));
 var db = require('./database');
-var Array = [];
+
 app.get('/*', function(req, res, next){
   if(req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     req.admin = true;
@@ -30,10 +30,10 @@ app.get('/*', function(req, res, next){
 var indexRouter = require('./routes/index');
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
-var addpostRouter = require('./routes/addpost')
+var addpostRouter = require('./routes/addpost');
 var categoriesRouter = require('./routes/categories');
 var author_dbRouter = require('./routes/author_db');
-var post_dbRouter = require('./routes/post_db')
+var post_dbRouter = require('./routes/post_db');
 var addcategoryRouter = require('./routes/addcategory');
 var category_dbRouter = require('./routes/category_db');
 var postsRouter = require('./routes/posts.js');
@@ -66,7 +66,7 @@ var postSchema = new Schema({
     default: Date.now
   },
   category: ObjectId,
-})
+});
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -94,7 +94,7 @@ app.use('/editauthor', editauthorRouter);
 app.use('/editpost', editpostRouter);
 app.use('/author_edit', author_editRouter);
 app.use('/post_edit',post_editRouter);
-app.use('/category_edit',category_editRouter)
+app.use('/category_edit',category_editRouter);
 
 app.use(function (req, res, next) {
   next(createError(404));
