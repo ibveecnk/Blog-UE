@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
     } else {
         //app.locals.admin = false;
     }
-    res.render('login', { title: "Login" , admin:req.admin});
+    res.render('login', { title: "Login" , admin:req.admin, globalCategory: req.categories});
 });
 
 module.exports = router;

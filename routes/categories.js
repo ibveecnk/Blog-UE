@@ -10,7 +10,7 @@ var app = express();
 
 router.all('/:category', function (req, res, next) {
     var category = req.params.category;
-
+    console.log("CATEGORIES ROUTER")
     db.Category.findOne({
         caturl: category
     }, function (err, category) {
@@ -27,13 +27,21 @@ router.all('/:category', function (req, res, next) {
             } else {
                 app.locals.admin = false;
             }
+            console.log("CAT")
+            console.log(req.categories)
             res.render('categories', {
                 category: category,
                 posts: posts,
-                title: "Kategorie: " + category.catname, admin:req.admin
+                title: "Kategorie: " + category.catname, admin:req.admin, globalCategory: req.categories
             });
         })
     })
 })
+router.get('/', function(req, res, next){
+    db.Category.find({}).lean().exec(function(err,category){
+        res.render('categoryoverview',{globalCategory:req.categories, title: "Alle Kategorien", admin:req.admin, category:category})
+    })
+})
+
 
 module.exports = router;

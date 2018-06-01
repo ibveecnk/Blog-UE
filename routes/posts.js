@@ -18,7 +18,7 @@ router.all('/:post', function (req, res, next) {
         } else {
             //app.locals.admin = false;
         }
-        res.render('posts', { post: post, title: "Post: " + post.title , admin:req.admin})
+        res.render('posts', { post: post, title: "Post: " + post.title , admin:req.admin, globalCategory: req.categories})
     })
 })
 

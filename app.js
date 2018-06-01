@@ -14,15 +14,16 @@ var encryption = uuid();
 app.use(cookieParser(encryption));
 var db = require('./database');
 var Array = [];
-app.get('/:any', function(req, res, next){
+app.get('/*', function(req, res, next){
+  console.log("ALL ROUTER")
   if(req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     req.admin = true;
   } else {
     req.admin = false;
   }
+  db.Category.find({}).lean().exec(function (err, category) { console.log(category);req.categories = category });
   next();
 })
-db.Category.find({}).lean().exec(function (err, category) { app.locals.globalCat = category });
 
 
 var indexRouter = require('./routes/index');
