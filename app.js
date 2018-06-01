@@ -21,8 +21,11 @@ app.get('/*', function(req, res, next){
   } else {
     req.admin = false;
   }
-  db.Category.find({}).lean().exec(function (err, category) { console.log(category);req.categories = category });
-  next();
+  db.Category.find({}).lean().exec(function (err, category) {
+    console.log(category);
+    req.categories = category;
+    next();
+  });
 })
 
 

@@ -16,7 +16,10 @@ router.get('/:category', function (req, res, next) {
   }
 });
 router.get('/', function(req, res, next) {
-  db.Category.find({},function(err,result){
+  db.Category.find({}).lean().exec(function(err,result){
+    result.forEach(element => {
+      element.path = 'editcategory/';
+    });
     res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result, admin:req.admin, globalCategory: req.categories});
   })
 })

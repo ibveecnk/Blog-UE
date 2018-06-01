@@ -1,8 +1,8 @@
 <div id="main">
-    <h1>POST BEARBEITEN</h1>
+    <h1>{{title}}</h1>
     <ul class="post_list">
     {{#each post}}
-        <a href="/editpost/{{this._id}}">
+        <a href="/{{path}}{{this._id}}">
             <h2>{{this.title}}</h2>
             <div class="post_date">{{this.date}}</div>
             <div class="post_author">Gepostet von: {{this.author.Surname}} {{this.author.Name}}</div>
