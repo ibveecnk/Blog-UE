@@ -14,6 +14,7 @@ var encryption = uuid();
 app.use(cookieParser(encryption));
 var db = require('./database');
 var Array = [];
+
 app.get('/*', function(req, res, next){
   if(req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     req.admin = true;
@@ -25,7 +26,6 @@ app.get('/*', function(req, res, next){
     next();
   });
 })
-
 
 var indexRouter = require('./routes/index');
 var kontaktRouter = require('./routes/kontakt');
