@@ -47,6 +47,7 @@ var editpostRouter = require('./routes/editpost');
 var author_editRouter = require('./routes/author_edit');
 var post_editRouter = require('./routes/post_edit');
 var category_editRouter = require('./routes/category_edit');
+var addpostRouter = require('./routes/addcomment');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -54,18 +55,6 @@ app.engine('hbs', exphbs({
   layoutsDir: './views/layouts/'
 }));
 app.set('views', path.join(__dirname, 'views'));
-
-var postSchema = new Schema({
-  public: Boolean,
-  title: String,
-  content: String,
-  author: ObjectId,
-  date: {
-    type: Date,
-    default: Date.now
-  },
-  category: ObjectId,
-});
 app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(cookieParser());

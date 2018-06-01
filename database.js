@@ -19,8 +19,9 @@ var categorySchema = new Schema({
 })
 
 var commentSchema = new Schema({
-  Username: String,
-  PostID: {
+  username: String,
+  commentmsg: String,
+  postID: {
     type: Schema.Types.ObjectId,
     ref:'Post'
   }
