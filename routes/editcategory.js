@@ -7,18 +7,28 @@ var db = require('../database.js');
 router.get('/:category', function (req, res, next) {
   var categoryURL = req.params.category;
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+<<<<<<< HEAD
     app.locals.admin = true;
     db.Category.findOne({caturl:categoryURL},function(err,result){
       res.render('editcategory', { title: "Kategorie bearbeiten" , category:result});
     })
+=======
+    //app.locals.admin = true;
+>>>>>>> 7664876682b90361f149fe43d5edbe11bcd48017
   } else {
-    app.locals.admin = false;
+    //app.locals.admin = false;
     res.redirect('/login');
   }
+<<<<<<< HEAD
+=======
+  db.Category.findOne({caturl:categoryURL},function(err,result){
+    res.render('editcategory', { title: "Kategorie bearbeiten" , category:result, admin:req.admin});
+  })
+>>>>>>> 7664876682b90361f149fe43d5edbe11bcd48017
 });
 router.get('/', function(req, res, next) {
   db.Category.find({},function(err,result){
-    res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result});
+    res.render('categoryoverview',{title:"Kategorie bearbeiten",category:result, admin:req.admin});
   })
 })
 module.exports = router;

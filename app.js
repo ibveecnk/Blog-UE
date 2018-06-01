@@ -14,9 +14,11 @@ var encryption = uuid();
 app.use(cookieParser(encryption));
 var db = require('./database');
 var Array = [];
-app.get('/', function (req, res, next) {
-  if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-    app.locals.admin = true;
+app.get('/:any', function(req, res, next){
+  if(req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
+    req.admin = true;
+  } else {
+    req.admin = false;
   }
   next();
 })
@@ -45,6 +47,7 @@ var editpostRouter = require('./routes/editpost');
 var author_editRouter = require('./routes/author_edit');
 var post_editRouter = require('./routes/post_edit');
 var category_editRouter = require('./routes/category_edit');
+var allRouter = require('./routes/all');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',

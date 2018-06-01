@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 var express = require('express')
 var app = express();
-//var localvariables = require('./localvariables.js');
+var localvariables = require('./localvariables.js');
 var Schema = mongoose.Schema,
   ObjectId = Schema.ObjectId;
 var connection = mongoose.connection;
 
-mongoose.connect('mongodb://localhost/ArticleDB');
+mongoose.connect(localvariables);
 
 connection.on('connected', function () {
   console.log('Erfolgreich mit Datenbank verbunden');
