@@ -23,5 +23,15 @@ router.all('/:post', function (req, res, next) {
         }
     })
 })
-
+router.get('/', function(req, res, next) {
+    db.Post.find({}).populate('author').populate('category').lean().exec(function(err,result){
+        result.forEach(current_post => {
+          var dateObj = new Date(current_post.date);
+          var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+          current_post.date = ("0" + dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0" + dateObj.getHours()).slice(-2) + ":" + ("0" + dateObj.getMinutes()).slice(-2) + " Uhr";
+          current_post.path = 'posts/';
+        });
+        res.render('postoverview',{title:"Alle Posts" , post:result, admin:req.admin, globalCategory: req.categories})
+      })
+})
 module.exports = router;

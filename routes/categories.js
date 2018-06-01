@@ -43,6 +43,9 @@ router.all('/:category', function (req, res, next) {
 })
 router.get('/', function(req, res, next){
     db.Category.find({}).lean().exec(function(err,category){
+        category.forEach(cat => {
+            cat.path = 'categories/'
+        })
         res.render('categoryoverview',{globalCategory:req.categories, title: "Alle Kategorien", admin:req.admin, category:category})
     })
 })
