@@ -18,11 +18,11 @@ router.all('/:category', function (req, res, next) {
         } else {
             db.Post.find({
                 category: category._id
-            }, function (err, posts) { }).populate("author").lean().exec(function (err, posts) {
+            }, function (err, posts) { }).populate('author').lean().exec(function (err, posts) {
                 posts.forEach(current_post => {
                     var dateObj = new Date(current_post.date);
-                    var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-                    current_post.date = ("0" + dateObj.getDate()).slice(-2) + ". " + months[dateObj.getMonth()] + " " + dateObj.getFullYear() + " | " + ("0" + dateObj.getHours()).slice(-2) + ":" + ("0" + dateObj.getMinutes()).slice(-2) + " Uhr";
+                    var months = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+                    current_post.date = ('0' + dateObj.getDate()).slice(-2) + '. ' + months[dateObj.getMonth()] + ' ' + dateObj.getFullYear() + ' | ' + ('0' + dateObj.getHours()).slice(-2) + ':' + ('0' + dateObj.getMinutes()).slice(-2) + ' Uhr';
                 });
                 if (req.cookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
                     app.locals.admin = true;
@@ -32,7 +32,7 @@ router.all('/:category', function (req, res, next) {
                 res.render('categories', {
                     category: category,
                     posts: posts,
-                    title: "Kategorie: " + category.catname, admin: req.admin, globalCategory: req.categories
+                    title: 'Kategorie: ' + category.catname, admin: req.admin, globalCategory: req.categories
                 });
             })
         }
@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
         category.forEach(cat => {
             cat.path = 'categories/'
         })
-        res.render('categoryoverview', { globalCategory: req.categories, title: "Alle Kategorien", admin: req.admin, category: category })
+        res.render('categoryoverview', { globalCategory: req.categories, title: 'Alle Kategorien', admin: req.admin, category: category })
     })
 })
 

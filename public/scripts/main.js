@@ -22,7 +22,7 @@ function startCategoryChecker() {
 }
 function startPostChecker() {
     setInterval(function(){
-        if(lettersandumlauts.test(document.querySelector('#title').value) && document.querySelector('#author').value !== "id" && document.querySelector('#category').value !== 'id' && document.querySelector('#content').value.length > 0) {
+        if(lettersandumlauts.test(document.querySelector('#title').value) && document.querySelector('#author').value !== 'id' && document.querySelector('#category').value !== 'id' && document.querySelector('#content').value.length > 0) {
             document.querySelector('#submit').disabled = false;
         } else {
             document.querySelector('#submit').disabled = true;

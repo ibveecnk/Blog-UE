@@ -8,7 +8,7 @@ router.get('/:category', function (req, res, next) {
   var categoryURL = req.params.category;
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     db.Category.findOne({ caturl: categoryURL }, function (err, result) {
-      res.render('editcategory', { title: "Kategorie bearbeiten", category: result, admin: req.admin, globalCategory: req.categories });
+      res.render('editcategory', { title: 'Kategorie bearbeiten', category: result, admin: req.admin, globalCategory: req.categories });
     })
   } else {
     res.redirect('/login');
@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
     result.forEach(element => {
       element.path = 'editcategory/';
     });
-    res.render('categoryoverview', { title: "Kategorie bearbeiten", category: result, admin: req.admin, globalCategory: req.categories });
+    res.render('categoryoverview', { title: 'Kategorie bearbeiten', category: result, admin: req.admin, globalCategory: req.categories });
   })
 })
 module.exports = router;

@@ -9,7 +9,7 @@ router.get('/:author', function (req, res, next) {
   if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     db.Author.findOne({ _id: authorId }, function (err, result) {
     }).lean().exec(function (err, result) {
-      res.render('editauthor', { title: "Autor bearbeiten", author: result, admin: req.admin, globalCategory: req.categories });
+      res.render('editauthor', { title: 'Autor bearbeiten', author: result, admin: req.admin, globalCategory: req.categories });
     })
   } else {
     res.redirect('/login')
@@ -17,7 +17,7 @@ router.get('/:author', function (req, res, next) {
 });
 router.get('/', function (req, res, next) {
   db.Author.find({}, function (err, result) {
-    res.render('authoroverview', { title: "Autor bearbeiten", authors: result, admin: req.admin, globalCategory: req.categories });
+    res.render('authoroverview', { title: 'Autor bearbeiten', authors: result, admin: req.admin, globalCategory: req.categories });
   })
 })
 

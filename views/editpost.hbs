@@ -1,35 +1,35 @@
-<div id="main">
+<div id='main'>
     <h1>Post bearbeiten</h1>
-    <form action="/post_edit" method="POST" id="postform" class="form">
-        <input type="text" id="id" name="id" style="display:none" value="{{post._id}}">
-        <input type="text" id="title" name="title" placeholder="Titel" value="{{post.title}}">
-        <textarea id="content" name="content" placeholder="Text">{{post.content}}</textarea>
+    <form action='/post_edit' method='POST' id='postform' class='form'>
+        <input type='text' id='id' name='id' style='display:none' value='{{post._id}}'>
+        <input type='text' id='title' name='title' placeholder='Titel' value='{{post.title}}'>
+        <textarea id='content' name='content' placeholder='Text'>{{post.content}}</textarea>
         <label>
             Autor
-            <select id="author" name="author" value="{{post.author._id}}">
-                <option value="id" disabled>Autor auswählen</option>
+            <select id='author' name='author' value='{{post.author._id}}'>
+                <option value='id' disabled>Autor auswählen</option>
                 {{#each authors}}
                     {{#if this.selected}}
-                        <option value="{{this._id}}" selected>{{this.Surname}} {{this.Name}}</option>
+                        <option value='{{this._id}}' selected>{{this.Surname}} {{this.Name}}</option>
                     {{else}}
-                        <option value="{{this._id}}">{{this.Surname}} {{this.Name}}</option>
+                        <option value='{{this._id}}'>{{this.Surname}} {{this.Name}}</option>
                     {{/if}}
                 {{/each}}
             </select>
         </label>
         <label>
             Kategorie
-            <select id="category" name="category" value="{{post.category}}">
-                <option value="id" disabled selected>Kategorie auswählen</option>
+            <select id='category' name='category' value='{{post.category}}'>
+                <option value='id' disabled selected>Kategorie auswählen</option>
                 {{#each categories}}
                     {{#if this.selected}}
-                        <option value="{{this._id}}" selected>{{this.catname}}</option>
+                        <option value='{{this._id}}' selected>{{this.catname}}</option>
                     {{else}}
-                        <option value="{{this._id}}">{{this.catname}}</option>
+                        <option value='{{this._id}}'>{{this.catname}}</option>
                     {{/if}}
                 {{/each}}
             </select>
         </label>
-        <input type="submit" value="Post hinzufügen" id="post">
+        <input type='submit' value='Post hinzufügen' id='post'>
     </form>
 </div>

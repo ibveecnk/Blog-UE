@@ -1,40 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/stylesheets/foundation.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='/stylesheets/foundation.min.css'>
     <!-- FAVICON !-->
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png'>
+    <link rel='apple-touch-icon' sizes='60x60' href='/apple-icon-60x60.png'>
+    <link rel='apple-touch-icon' sizes='72x72' href='/apple-icon-72x72.png'>
+    <link rel='apple-touch-icon' sizes='76x76' href='/apple-icon-76x76.png'>
+    <link rel='apple-touch-icon' sizes='114x114' href='/apple-icon-114x114.png'>
+    <link rel='apple-touch-icon' sizes='120x120' href='/apple-icon-120x120.png'>
+    <link rel='apple-touch-icon' sizes='144x144' href='/apple-icon-144x144.png'>
+    <link rel='apple-touch-icon' sizes='152x152' href='/apple-icon-152x152.png'>
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-icon-180x180.png'>
+    <link rel='icon' type='image/png' sizes='192x192'  href='/android-icon-192x192.png'>
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='96x96' href='/favicon-96x96.png'>
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'>
+    <link rel='manifest' href='/manifest.json'>
+    <meta name='msapplication-TileColor' content='#ffffff'>
+    <meta name='msapplication-TileImage' content='/ms-icon-144x144.png'>
+    <meta name='theme-color' content='#ffffff'>
 </head>
 <body>
-    <ul class="dropdown menu" data-dropdown-menu>
+    <ul class='dropdown menu' data-dropdown-menu>
         <li>
-            <a href="/">HOME</a>
+            <a href='/'>HOME</a>
         </li>
         <li>
             <a>BEITRÄGE</a>
-            <ul class="menu">
+            <ul class='menu'>
                 {{#each globalCategory}}
                     <li>
-                        <a href="/categories/{{this.caturl}}">{{this.catname}}</a>
+                        <a href='/categories/{{this.caturl}}'>{{this.catname}}</a>
                     </li>
                 {{/each}}
             </ul>
@@ -42,37 +42,37 @@
         {{#if admin}}
         <li>
             <a>ADMIN</a>
-            <ul class="menu">
+            <ul class='menu'>
                 <li>
-                    <a href="/addcategory">NEUE KATEGORIE</a>
+                    <a href='/addcategory'>NEUE KATEGORIE</a>
                 </li>
                 <li>
-                    <a href="/addauthor">NEUER AUTOR</a>
+                    <a href='/addauthor'>NEUER AUTOR</a>
                 </li>
                 <li>
-                    <a href="/addpost">NEUER POST</a>
+                    <a href='/addpost'>NEUER POST</a>
                 </li>
                 <li>
-                    <a href="/editcategory">KATEGORIE BEARBEITEN</a>
+                    <a href='/editcategory'>KATEGORIE BEARBEITEN</a>
                 </li>
                 <li>
-                    <a href="/editauthor">AUTOR BEARBEITEN</a>
+                    <a href='/editauthor'>AUTOR BEARBEITEN</a>
                 </li>
                 <li>
-                    <a href="/editpost">POST BEARBEITEN</a>
+                    <a href='/editpost'>POST BEARBEITEN</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="/logout">LOGOUT</a>
+            <a href='/logout'>LOGOUT</a>
         </li>
         {{/if}}
     </ul>
     {{{ body }}}
-    <script src="/scripts/jquery.min.js"></script>
-    <script src="/scripts/what-input.min.js"></script>
-    <script src="/scripts/foundation.min.js"></script>
-    <script src="/scripts/motion-ui.min.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src='/scripts/jquery.min.js'></script>
+    <script src='/scripts/what-input.min.js'></script>
+    <script src='/scripts/foundation.min.js'></script>
+    <script src='/scripts/motion-ui.min.js'></script>
+    <script src='/scripts/main.js'></script>
 </body>
 </html>

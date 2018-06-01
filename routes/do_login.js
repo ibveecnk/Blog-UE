@@ -9,16 +9,16 @@ router.post('/', function (req, res, next) {
     var ip = (req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
-      req.connection.socket.remoteAddress).split(",")[0];
+      req.connection.socket.remoteAddress).split(',')[0];
     res.cookie('logged_in', '01e6efdb-9421-4271-83eb-b685f618e2c3', { signed: true, maxAge: 3600000 });
-    console.log('User with IP: ' + ip + " logged in")
+    console.log('User with IP: ' + ip + ' logged in')
     res.redirect('/');
   } else {
     var ip = (req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||
-      req.connection.socket.remoteAddress).split(",")[0];
-    console.log('User with IP: ' + ip + " failed to login with Password: " + req.body.password)
+      req.connection.socket.remoteAddress).split(',')[0];
+    console.log('User with IP: ' + ip + ' failed to login with Password: ' + req.body.password)
     res.redirect('/');
   }
 });

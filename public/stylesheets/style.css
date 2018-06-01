@@ -33,7 +33,7 @@ html, body, * {
   src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/montserrat-v12-latin-regular.woff2") format("woff2"), url("../fonts/montserrat-v12-latin-regular.woff") format("woff");
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */ }
 
-input[type="submit"] {
+input[type='submit'] {
   -webkit-appearance: none;
   appearance: none;
   padding: 2%;
@@ -42,7 +42,7 @@ input[type="submit"] {
   border-style: solid;
   background: white;
   transition: background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out; }
-  input[type="submit"]:enabled:hover {
+  input[type='submit']:enabled:hover {
     background: #3996B9;
     color: white;
     border-color: white;
@@ -50,17 +50,17 @@ input[type="submit"] {
     transition: background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out; }
 
 #main {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
   width: 70%; }
   #main h1 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     color: white;
     background: #C93936;
     padding: 0 3%; }
   #main p {
     padding: 0 3%;
-    font-family: "Work Sans"; }
+    font-family: 'Work Sans'; }
   #main .post_list {
     margin: 0; }
     #main .post_list a {
@@ -92,7 +92,7 @@ input[type="submit"] {
     padding: 0 3%;
     word-break: break-word;
     white-space: pre;
-    font-family: "Work Sans",sans-serif;
+    font-family: 'Work Sans',sans-serif;
     font-weight: normal; }
   #main #author_list {
     margin: 0; }
@@ -117,7 +117,7 @@ input[type="submit"] {
     padding: 1.5% 1%; }
   .dropdown li {
     list-style-type: none;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 1.5rem;
     margin: 0 2%;
     transition: color .3s ease-in-out; }
