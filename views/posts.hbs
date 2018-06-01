@@ -5,4 +5,20 @@
     </div>
     <br>
     <pre class='text_content'>{{post.content}}</pre>
+    <form action='addcomment' method='post' id='comment_section'>
+        <input type='text' name='id' value='{{post._id}}' style='display:none'>
+        <div class='grid-x grid-margin-x'>
+            <div class='small-3 medium-3 large-3 cell'>
+                <label>Name
+                    <input type='text' name='name'>
+                </label>
+            </div>
+            <div class='small-7 medium-7 large-7 cell'>
+                <label>Kommentar
+                    <input type='text' name='comment'>
+                    <input type='submit' value='Kommentieren'>
+                </label>
+            </div>
+        </div>
+    </form>
 </div>

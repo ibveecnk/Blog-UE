@@ -118,6 +118,9 @@ input[type='submit'] {
         transform: scale(1.05);
         transition: box-shadow .3s ease-in-out, transform .3s ease-in-out;
         cursor: pointer; }
+  #main #comment_section {
+    padding: 0 3%;
+    margin-top: 10%; }
 
 .dropdown {
   margin-bottom: 1% !important; }
