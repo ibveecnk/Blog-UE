@@ -1,6 +1,6 @@
 <div id="main">
     <h1>Post hinzufügen</h1>
-    <form action="/post_db" method="POST">
+    <form action="/post_db" method="POST" id="postform" class="form">
         <input type="text" id="title" name="title" placeholder="Titel">
         <textarea id="content" name="content" placeholder="Text"></textarea>
         <label>
@@ -21,6 +21,6 @@
                 {{/each}}
             </select>
         </label>
-        <input type="submit" value="Post hinzufügen">
+        <input type="submit" value="Post hinzufügen" id="submit">
     </form>
 </div>

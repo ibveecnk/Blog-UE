@@ -37,8 +37,11 @@ input[type="submit"] {
   -webkit-appearance: none;
   appearance: none;
   padding: 2%;
+  border: 1px solid #d8d8d8 #d1d1d1 #bababa;
+  border-color: #d8d8d8 #d1d1d1 #bababa;
+  background: white;
   transition: background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out; }
-  input[type="submit"]:hover {
+  input[type="submit"]:enabled:hover {
     background: #3996B9;
     color: white;
     border-color: white;
@@ -87,7 +90,9 @@ input[type="submit"] {
   #main .text_content {
     padding: 0 3%;
     word-break: break-word;
-    white-space: pre; }
+    white-space: pre;
+    font-family: "Work Sans",sans-serif;
+    font-weight: normal; }
   #main #author_list {
     margin: 0; }
     #main #author_list a {

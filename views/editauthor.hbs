@@ -1,9 +1,10 @@
 <div id="main">
     <h1>Autor bearbeiten</h1>
-    <form id="testform" action="/author_edit" method="post">
+    <form id="authorform" action="/author_edit" method="post" class="form">
         <input type="text" id="id" name="id" style="display:none" value="{{author._id}}">
         <input type="text" id="surname" name="surname" placeholder="Vorname" value="{{author.Surname}}">
         <input type="text" id="name" name="name" placeholder="Nachname" value="{{author.Name}}">
-        <input type="submit" value="Autor bearbeiten">
+        <input type="submit" value="Autor bearbeiten" id="submit">
     </form>
+    <script>startAuthorChecker()</script>
 </div>

@@ -43,8 +43,11 @@ input[type="submit"] {
     -webkit-appearance:none;
     appearance:none;
     padding:2%;
+    border: 1px solid rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-color:rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    background:white;
     transition:background .3s ease-in-out,color .3s ease-in-out, border-color .3s ease-in-out;
-    &:hover {
+    &:enabled:hover {
         background:$secondary_color;
         color:white;
         border-color:white;
@@ -104,6 +107,8 @@ input[type="submit"] {
         padding:0 3%;
         word-break:break-word;
         white-space:pre;
+        font-family:"Work Sans",sans-serif;
+        font-weight:normal;
     }
     #author_list {
         margin:0;
