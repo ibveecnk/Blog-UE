@@ -7,16 +7,13 @@ var app = express();
 router.post('/', function (req, res, next) {
   if (req.body.password === 'admin') {
     var ip = (req.headers['x-forwarded-for'] ||
-    req.connection.remoteAddress ||
-    req.socket.remoteAddress ||
-    req.connection.socket.remoteAddress).split(",")[0];
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress ||
+      req.connection.socket.remoteAddress).split(",")[0];
     res.cookie('logged_in', '01e6efdb-9421-4271-83eb-b685f618e2c3', { signed: true, maxAge: 3600000 });
-   console.log('User with IP: ' + ip + " logged in")
-    //app.locals.admin = true;
+    console.log('User with IP: ' + ip + " logged in")
     res.redirect('/');
-//Login log
   } else {
-    //app.locals.admin = false;
     var ip = (req.headers['x-forwarded-for'] ||
       req.connection.remoteAddress ||
       req.socket.remoteAddress ||

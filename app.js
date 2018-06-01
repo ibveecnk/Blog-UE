@@ -15,14 +15,12 @@ app.use(cookieParser(encryption));
 var db = require('./database');
 var Array = [];
 app.get('/*', function(req, res, next){
-  console.log("ALL ROUTER")
   if(req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
     req.admin = true;
   } else {
     req.admin = false;
   }
   db.Category.find({}).lean().exec(function (err, category) {
-    console.log(category);
     req.categories = category;
     next();
   });
@@ -30,7 +28,6 @@ app.get('/*', function(req, res, next){
 
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var kontaktRouter = require('./routes/kontakt');
 var addauthorRouter = require('./routes/addauthor');
 var addpostRouter = require('./routes/addpost')
@@ -51,7 +48,6 @@ var editpostRouter = require('./routes/editpost');
 var author_editRouter = require('./routes/author_edit');
 var post_editRouter = require('./routes/post_edit');
 var category_editRouter = require('./routes/category_edit');
-var allRouter = require('./routes/all');
 
 app.engine('hbs', exphbs({
   defaultLayout: 'layout',
@@ -79,7 +75,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/kontakt', kontaktRouter);
 app.use('/addauthor', addauthorRouter);
 app.use('/author_db', author_dbRouter);

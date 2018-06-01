@@ -4,15 +4,7 @@ var app = express();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    if (req.signedCookies.logged_in == '01e6efdb-9421-4271-83eb-b685f618e2c3') {
-        //app.locals.admin = true;
-    } else {
-        //app.locals.admin = false;
-    }
-    console.log("LOGIN")
-    console.log(req.admin)
-    console.log(req.categories);
-    res.render('login', { title: "Login" , admin:req.admin, globalCategory: req.categories});
+    res.render('login', { title: "Login", admin: req.admin, globalCategory: req.categories });
 });
 
 module.exports = router;

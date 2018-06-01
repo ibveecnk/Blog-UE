@@ -10,16 +10,15 @@ var app = express();
 
 router.all('/:category', function (req, res, next) {
     var category = req.params.category;
-    console.log("CATEGORIES ROUTER")
     db.Category.findOne({
         caturl: category
     }, function (err, category) {
-        if(category == null) {
-            res.render('categorynotfound',{title:'Kategorie nicht gefunden', admin:req.admin, globalCategory: req.categories})
+        if (category == null) {
+            res.render('categorynotfound', { title: 'Kategorie nicht gefunden', admin: req.admin, globalCategory: req.categories })
         } else {
             db.Post.find({
                 category: category._id
-            }, function (err, posts) {}).populate("author").lean().exec(function (err, posts) {
+            }, function (err, posts) { }).populate("author").lean().exec(function (err, posts) {
                 posts.forEach(current_post => {
                     var dateObj = new Date(current_post.date);
                     var months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
@@ -30,23 +29,21 @@ router.all('/:category', function (req, res, next) {
                 } else {
                     app.locals.admin = false;
                 }
-                console.log("CAT")
-                console.log(req.categories)
                 res.render('categories', {
                     category: category,
                     posts: posts,
-                    title: "Kategorie: " + category.catname, admin:req.admin, globalCategory: req.categories
+                    title: "Kategorie: " + category.catname, admin: req.admin, globalCategory: req.categories
                 });
             })
         }
     })
 })
-router.get('/', function(req, res, next){
-    db.Category.find({}).lean().exec(function(err,category){
+router.get('/', function (req, res, next) {
+    db.Category.find({}).lean().exec(function (err, category) {
         category.forEach(cat => {
             cat.path = 'categories/'
         })
-        res.render('categoryoverview',{globalCategory:req.categories, title: "Alle Kategorien", admin:req.admin, category:category})
+        res.render('categoryoverview', { globalCategory: req.categories, title: "Alle Kategorien", admin: req.admin, category: category })
     })
 })
 
