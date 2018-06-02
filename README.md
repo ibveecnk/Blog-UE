@@ -4,11 +4,15 @@
 created by MP and IB
 
 Requirements:
-  - MongoDB
+  - MongoDB `For saving Posts, Authors, Comments and Categories`
   - git `For being able to clone`
-  - (not necessary) Nodemon `For easier development`
+  - Nodemon `Not necessary but recommended For easier development`
 
-Start using the command `nodemon` in the containing directory. Hosted on `localhost:3001`. Set the IP of your mongo database in a file called `localvariables.js` which you have to create yourself in the containing directory. It should contain:
+Launch using the command `nodemon` or if not installed `npm start` in the root directory of the project. 
+By default, the Server runs on `localhost:3001`. 
+Set the IP of your mongo database in a file called `localvariables.js` which you have to create yourself in the project root directory. 
 
-`var dburl = 'mongodb://YOUR IP/ArticleDB';
-module.exports = dburl;`
+`localvariables.js` should contain these two lines:
+
+`var dburl = 'mongodb://IP-OF-MONGODB/ArticleDB';`
+`module.exports = dburl;`
